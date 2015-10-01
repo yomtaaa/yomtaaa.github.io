@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>你了解事件流吗？ | Daily life</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="事件冒泡：即由文档中嵌套层次最深的元素接收，逐级向上传播(FF、chrome、opera、safari以及ie9以上都会一直传播至window，而ie9以下的则只冒泡到html)。事件捕获：即由不太具体的元素最先接收事件，而最具体的元素安排在最后，逐级向下传播。事件流的3个阶段：事件捕获阶段、目标阶段、事件冒泡阶段，虽然规定由document最先接收，但实际上都从window开始。在addEven">
+<meta property="og:type" content="article">
+<meta property="og:title" content="你了解事件流吗？">
+<meta property="og:url" content="http://yomtaaa.com/2015/08/31/event/index.html">
+<meta property="og:site_name" content="Daily life">
+<meta property="og:description" content="事件冒泡：即由文档中嵌套层次最深的元素接收，逐级向上传播(FF、chrome、opera、safari以及ie9以上都会一直传播至window，而ie9以下的则只冒泡到html)。事件捕获：即由不太具体的元素最先接收事件，而最具体的元素安排在最后，逐级向下传播。事件流的3个阶段：事件捕获阶段、目标阶段、事件冒泡阶段，虽然规定由document最先接收，但实际上都从window开始。在addEven">
+<meta property="og:image" content="http://yomtaaa.com/../image/event.png">
+<meta property="og:updated_time" content="2015-10-01T03:39:03.163Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="你了解事件流吗？">
+<meta name="twitter:description" content="事件冒泡：即由文档中嵌套层次最深的元素接收，逐级向上传播(FF、chrome、opera、safari以及ie9以上都会一直传播至window，而ie9以下的则只冒泡到html)。事件捕获：即由不太具体的元素最先接收事件，而最具体的元素安排在最后，逐级向下传播。事件流的3个阶段：事件捕获阶段、目标阶段、事件冒泡阶段，虽然规定由document最先接收，但实际上都从window开始。在addEven">
+  
+    <link rel="alternative" href="/atom.xml" title="Daily life" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+  
+
+</head>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Daily life</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yomtaaa.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-event" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/08/31/event/" class="article-date">
+  <time datetime="2015-08-31T03:32:10.000Z" itemprop="datePublished">2015-08-31</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      你了解事件流吗？
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><strong>事件冒泡</strong>：即由文档中嵌套层次最深的元素接收，逐级向上传播(FF、chrome、opera、safari以及ie9以上都会一直传播至window，而ie9以下的则只冒泡到html)。<br><strong>事件捕获</strong>：即由不太具体的元素最先接收事件，而最具体的元素安排在最后，逐级向下传播。<br><strong>事件流的3个阶段</strong>：事件捕获阶段、目标阶段、事件冒泡阶段，虽然规定由document最先接收，但实际上都从window开始。在addEventListener中的this始终指的都是调用他的元素。attachEvent事件处理程序中调用的this始终指向window。<br>addEventListener把第三个参数设置为true，让他在事件捕获阶段触发事件处理程序，相反的，如果为false则在事件冒泡阶段触发，从而达到和事件冒泡一致的效果。<br>为了兼容IE提供了attachEvent()，这个方法只针对IE，因为IE8没有事件流，所以用这个方法添加的事件处理程序都被添加到冒泡阶段。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">oDiv1.addEventListener(<span class="string">'click'</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">'父元素冒泡'</span>);</span><br><span class="line">&#125;,<span class="literal">false</span>);</span><br><span class="line">oDiv1.addEventListener(<span class="string">'click'</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">'父元素捕获'</span>);</span><br><span class="line">&#125;,<span class="literal">true</span>);</span><br><span class="line">oDiv2.addEventListener(<span class="string">'click'</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">'子元素捕获'</span>);</span><br><span class="line">&#125;,<span class="literal">true</span>);</span><br><span class="line">oDiv2.addEventListener(<span class="string">'click'</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">'子元素冒泡'</span>);</span><br><span class="line">&#125;,<span class="literal">false</span>);</span><br><span class="line">oDiv3.addEventListener(<span class="string">'click'</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">'孙元素捕获'</span>);</span><br><span class="line">&#125;,<span class="literal">true</span>);</span><br><span class="line">oDiv3.addEventListener(<span class="string">'click'</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">'孙元素冒泡'</span>);</span><br><span class="line">&#125;,<span class="literal">false</span>);</span><br></pre></td></tr></table></figure></p>
+<p><img src="../image/event.png"><br>下面是控制台的输出，一切都显得那么自然。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">父元素捕获</span><br><span class="line">子元素捕获</span><br><span class="line">孙元素捕获</span><br><span class="line">孙元素冒泡</span><br><span class="line">子元素冒泡</span><br><span class="line">父元素冒泡</span><br></pre></td></tr></table></figure></p>
+<p>当我们把孙元素的事件处理程序交换位置后….<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">oDiv3.addEventListener(<span class="string">'click'</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">'孙元素冒泡'</span>);</span><br><span class="line">&#125;,<span class="literal">false</span>);</span><br><span class="line">oDiv3.addEventListener(<span class="string">'click'</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">'孙元素捕获'</span>);</span><br><span class="line">&#125;,<span class="literal">true</span>);</span><br></pre></td></tr></table></figure></p>
+<p>控制台的输出如下<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">父元素捕获</span><br><span class="line">子元素捕获</span><br><span class="line">孙元素冒泡</span><br><span class="line">孙元素捕获</span><br><span class="line">子元素冒泡</span><br><span class="line">父元素冒泡</span><br></pre></td></tr></table></figure></p>
+<p>如果你给代码最深处再嵌套一个div，你会发现冒泡和捕获位置错乱总是出现在最深一层。<br>还记得事件流包括3个阶段吗？事件捕获阶段、目标阶段、事件冒泡阶段。<br>点击孙元素时处于目标阶段然后是冒泡，冒泡之后才触发捕获（这跟事件顺序有关），接着再往上冒，这一点可以用event的eventPhase属性去验证。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yomtaaa.com/2015/08/31/event/" data-id="cif7oalyt0007hwqiblrb5mar" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2015/08/30/people/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">遇见一些人，然后再与他们告别</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  
+    
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">August 2015</a><span class="archive-list-count">5</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recents</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2015/08/31/event/">你了解事件流吗？</a>
+          </li>
+        
+          <li>
+            <a href="/2015/08/30/people/">遇见一些人，然后再与他们告别</a>
+          </li>
+        
+          <li>
+            <a href="/2015/08/30/dom/">DOM2范围</a>
+          </li>
+        
+          <li>
+            <a href="/2015/08/30/Math/">E5中数组的方法</a>
+          </li>
+        
+          <li>
+            <a href="/2015/08/28/transfrom/">Transform</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2015 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+  <script src="/fancybox/jquery.fancybox.pack.js" type="text/javascript"></script>
+
+
+<script src="/js/script.js" type="text/javascript"></script>
+
+  </div>
+</body>
+</html>

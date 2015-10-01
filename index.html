@@ -61,6 +61,47 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-event" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/08/31/event/" class="article-date">
+  <time datetime="2015-08-31T03:32:10.000Z" itemprop="datePublished">2015-08-31</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/08/31/event/">你了解事件流吗？</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><strong>事件冒泡</strong>：即由文档中嵌套层次最深的元素接收，逐级向上传播(FF、chrome、opera、safari以及ie9以上都会一直传播至window，而ie9以下的则只冒泡到html)。<br><strong>事件捕获</strong>：即由不太具体的元素最先接收事件，而最具体的元素安排在最后，逐级向下传播。<br><strong>事件流的3个阶段</strong>：事件捕获阶段、目标阶段、事件冒泡阶段，虽然规定由document最先接收，但实际上都从window开始。在addEventListener中的this始终指的都是调用他的元素。attachEvent事件处理程序中调用的this始终指向window。<br>addEventListener把第三个参数设置为true，让他在事件捕获阶段触发事件处理程序，相反的，如果为false则在事件冒泡阶段触发，从而达到和事件冒泡一致的效果。<br>为了兼容IE提供了attachEvent()，这个方法只针对IE，因为IE8没有事件流，所以用这个方法添加的事件处理程序都被添加到冒泡阶段。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">oDiv1.addEventListener(<span class="string">'click'</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">'父元素冒泡'</span>);</span><br><span class="line">&#125;,<span class="literal">false</span>);</span><br><span class="line">oDiv1.addEventListener(<span class="string">'click'</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">'父元素捕获'</span>);</span><br><span class="line">&#125;,<span class="literal">true</span>);</span><br><span class="line">oDiv2.addEventListener(<span class="string">'click'</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">'子元素捕获'</span>);</span><br><span class="line">&#125;,<span class="literal">true</span>);</span><br><span class="line">oDiv2.addEventListener(<span class="string">'click'</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">'子元素冒泡'</span>);</span><br><span class="line">&#125;,<span class="literal">false</span>);</span><br><span class="line">oDiv3.addEventListener(<span class="string">'click'</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">'孙元素捕获'</span>);</span><br><span class="line">&#125;,<span class="literal">true</span>);</span><br><span class="line">oDiv3.addEventListener(<span class="string">'click'</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">'孙元素冒泡'</span>);</span><br><span class="line">&#125;,<span class="literal">false</span>);</span><br></pre></td></tr></table></figure></p>
+<p><img src="../image/event.png"><br>下面是控制台的输出，一切都显得那么自然。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">父元素捕获</span><br><span class="line">子元素捕获</span><br><span class="line">孙元素捕获</span><br><span class="line">孙元素冒泡</span><br><span class="line">子元素冒泡</span><br><span class="line">父元素冒泡</span><br></pre></td></tr></table></figure></p>
+<p>当我们把孙元素的事件处理程序交换位置后….<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">oDiv3.addEventListener(<span class="string">'click'</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">'孙元素冒泡'</span>);</span><br><span class="line">&#125;,<span class="literal">false</span>);</span><br><span class="line">oDiv3.addEventListener(<span class="string">'click'</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">'孙元素捕获'</span>);</span><br><span class="line">&#125;,<span class="literal">true</span>);</span><br></pre></td></tr></table></figure></p>
+<p>控制台的输出如下<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">父元素捕获</span><br><span class="line">子元素捕获</span><br><span class="line">孙元素冒泡</span><br><span class="line">孙元素捕获</span><br><span class="line">子元素冒泡</span><br><span class="line">父元素冒泡</span><br></pre></td></tr></table></figure></p>
+<p>如果你给代码最深处再嵌套一个div，你会发现冒泡和捕获位置错乱总是出现在最深一层。<br>还记得事件流包括3个阶段吗？事件捕获阶段、目标阶段、事件冒泡阶段。<br>点击孙元素时处于目标阶段然后是冒泡，冒泡之后才触发捕获（这跟事件顺序有关），接着再往上冒，这一点可以用event的eventPhase属性去验证。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yomtaaa.com/2015/08/31/event/" data-id="cif7oalyt0007hwqiblrb5mar" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-people" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2015/08/30/people/" class="article-date">
@@ -88,7 +129,135 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yomtaaa.com/2015/08/30/people/" data-id="cif7nvhhh00006kqi80xmmoyk" class="article-share-link">Share</a>
+      <a data-url="http://yomtaaa.com/2015/08/30/people/" data-id="cif7oalyj0006hwqim02n0a8c" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-dom" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/08/30/dom/" class="article-date">
+  <time datetime="2015-08-30T14:05:06.000Z" itemprop="datePublished">2015-08-30</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/08/30/dom/">DOM2范围</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><strong>除了IE，其余主流浏览器都支持DOM2的范围，然而IE用其特有的方式实现了范围特性（但IE9+支持）！</strong><br><br>Document类型中定义了createRange()，这个方法属于document对象，首先检测浏览器是否支持他：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> supportRange=<span class="built_in">document</span>.implementation.hasFeature(<span class="string">'Range'</span>,<span class="string">'2.0'</span>);</span><br><span class="line"><span class="keyword">var</span> supportRange2=(<span class="keyword">typeof</span> <span class="built_in">document</span>.createRange==<span class="string">'function'</span>);</span><br></pre></td></tr></table></figure></p>
+<p><img src="../image/DOM/DOM-1.png"><br><br>这是初步创建范围后在控制台输出的，拿其中较为关键的属性来说 <br><br><strong>1.startContainer与endContainer他们通常是指向相同元素（前者为选区中第一个元素的父节点，后者为选区中最后一个元素的父节点）</strong><br><br><strong>2.startOffset通常等于父节点的childNodes的第一个子节点的索引，在兼容DOM的浏览器中空格算为一个文本节点。</strong><br>要使用范围选择文档中的一部分，可以使用selectNode()和selectNodeContents()，他们都接收一个参数，即范围的起点，前者选择自身与子，后者只选择子。<br>为了更精确更方便地控制范围引入了一些更为方便的方法，如下：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">setStartBefore(refNode) =&gt;  将范围设置在refNode之前，即refNode是范围开始的第一个子节点，所以startContainer就是refNode的父节点</span><br><span class="line">setStartAfter(refNode)  =&gt;  将范围设置在refNode之后，即refNode的下一个同辈节点才是选区的第一个子节点，所以refNode不在范围之内</span><br><span class="line">setEndBefore(refNode)   =&gt;  将范围的终点设置在refNode之前，即refNode的上一个同辈节点是选区的最后一个子节点，所以refNode不在范围之内</span><br><span class="line">setEndAfter(refNode)    =&gt;  将范围的终点设置在refNode之后，即refNode是选区的最后一个子节点，所以refNode在范围之内</span><br></pre></td></tr></table></figure></p>
+<p>复杂操作：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">setStart(node, offset) =&gt; 设置起点的位置，node是对startContainer的引用，偏移则是startOffset</span><br><span class="line">setEnd(node, offset    =&gt; 设置结束点的位置，node是对endContainer的引用，偏移则是startOffset</span><br></pre></td></tr></table></figure></p>
+<p><img src="../image/DOM/DOM-2.png"><br><br>这段代码最后剩下<strong>H</strong>erld    虽然把范围内的文本删了，但是DOM结构仍然不会变。<br><br>与deleteContents()类似的方法有extractContents()，但后者这个方法会返回选区的内容，因此可以利用他来插入到页面的其他位置。<br><br>cloneContents()这个方法，如果只是要创建一个范围的副本而不去删除或移除范围的内容可以用他，语法名称代表用法，即克隆内容。<br>插入DOM范围中的内容：使用insertNode()方法可以在范围选区开始处插入一个节点。<br><img src="../image/DOM/DOM-3.png"><img src="../image/DOM/DOM-4.png"><br><br>在使用完范围之后，最好调用detach()方法，清理范围，回收内存,一旦分离了范围就不能再使用了。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">range.detach();     <span class="comment">// 从文档中分离</span></span><br><span class="line">range=<span class="literal">null</span>;          <span class="comment">//  解除引用</span></span><br></pre></td></tr></table></figure></p>
+<p>/<em>===========接下来说IE8及更低版本中的DOM范围=============</em>/<br><br>准确来说IE高版本以及低版本都支持文本范围，是IE独有的特性，其他浏览器不支持，语法名称代表用法，所以主要用于文本。<br><img src="../image/DOM/DOM-5.png"><img src="../image/DOM/DOM-6.png"><img src="../image/DOM/DOM-7.png"><br><br>选择某一区域用方法findText(),他会找到第一次出现的文本，然而他第二个参数如果为负值就会找最后一个匹配成功的文本，正值就会找到第一个匹配成功的文本，这也就说明了图中为什么找到hELLO而不是另外两个的原因了！<br><br>当中的变量found只要在匹配到文本时就会返回true，匹配不区分大小写在某些操作上也许会带来方便，可以用属性text，来获取范围选中的文本。<br><br>DOM范围有selectNode()而IE中有=&gt;moveToElementText() =&gt;这个方法接收一个DOM元素，并选择该元素的所有文本，包括HTML标签。如果在范围选区中包含HTML标签可以用属性htmlText读取范围全部内容。<br><br>属性text可以读取文本也可以修改文本，如下：<br><br><img src="../image/DOM/DOM-8.png"><img src="../image/DOM/DOM-9.png"><img src="../image/DOM/DOM-10.png"><br><br>可见hELLO的部分已经被替代成hello，但<b>标签没有被替代，如果想把标签替换掉可以用pasteHTML()，例如：range1.pasteHTML(‘<em>hello</em>‘);<br>但是上述做法会引起冲突，不提倡！<br><br>IE中使用方法duplicate()复制文本范围，如同cloneContents()，新创建的范围带有原范围相同的属性。例：var range=range.duplicate();</b></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yomtaaa.com/2015/08/30/dom/" data-id="cif7oalyt0008hwqi6g2r1hpb" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-Math" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/08/30/Math/" class="article-date">
+  <time datetime="2015-08-30T12:16:26.000Z" itemprop="datePublished">2015-08-30</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/08/30/Math/">E5中数组的方法</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>数组方法里的函数一般接收3个参数：数组元素、索引、数组本身；数组的方法都不会影响他本身。<br><strong>①forEach()</strong>遍历数组，无返回值<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> data=[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>];</span><br><span class="line"><span class="keyword">var</span> sum=<span class="number">0</span>;</span><br><span class="line">sum=data.forEach(<span class="function"><span class="keyword">function</span>(<span class="params">v</span>)</span>&#123;sum+=v;&#125;);</span><br></pre></td></tr></table></figure></p>
+<p><strong>②map()</strong>遍历数组，返回新数组不改变原数组<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> data=[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,,];</span><br><span class="line"><span class="keyword">var</span> j=<span class="number">0</span>;</span><br><span class="line">j=data.map(<span class="function"><span class="keyword">function</span>(<span class="params">v,i</span>)</span>&#123;<span class="keyword">return</span> v * v&#125;); <span class="comment">//虽然在输出j的时候最后一个没定义的没显示，但是他仍然存在，这里的length值是6。</span></span><br></pre></td></tr></table></figure></p>
+<p><strong>③filter()</strong>遍历数组，传递的函数是用来逻辑判断的，返回true或false，判断成立则添加到返回的数组中，他会跳过稀疏数组中缺少的元素，返回到数组始终是稠密的<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> data=[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="literal">undefined</span>,<span class="literal">undefined</span>,,<span class="number">0</span>,<span class="number">9</span>];</span><br><span class="line"><span class="keyword">var</span> f=<span class="number">0</span>；</span><br><span class="line">f=data.filter(<span class="function"><span class="keyword">function</span>(<span class="params">v</span>)</span>&#123;<span class="keyword">return</span> v&gt;<span class="number">0</span>;&#125;);     <span class="comment">//[1,2,3,4,5,9]</span></span><br></pre></td></tr></table></figure></p>
+<p><strong>④every()</strong>遍历数组、逻辑判断，返回true或false，这个方法相当于“针对所有”，全部判断成立才返回true，一个不成立终止判断返回false。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> data=[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">0</span>];</span><br><span class="line"><span class="keyword">var</span> j=<span class="number">0</span>;</span><br><span class="line">j=data.every(<span class="function"><span class="keyword">function</span>(<span class="params">v,i</span>)</span>&#123;<span class="keyword">return</span> v&gt;<span class="number">0</span>;&#125;);</span><br></pre></td></tr></table></figure></p>
+<p><strong>⑤some()</strong>遍历数组、逻辑判断，返回true或false，这个方法相当于“存在或至少一个”，一个判断成立终止判断返回true，全部都不成立终止判断返回false。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> data=[-<span class="number">1</span>,-<span class="number">2</span>,-<span class="number">3</span>,-<span class="number">4</span>,-<span class="number">5</span>,<span class="number">0</span>];</span><br><span class="line"><span class="keyword">var</span> j=<span class="number">0</span>;</span><br><span class="line">j=data.some(<span class="function"><span class="keyword">function</span>(<span class="params">v</span>)</span>&#123;<span class="keyword">return</span> v&gt;<span class="number">0</span>;&#125;);</span><br></pre></td></tr></table></figure></p>
+<p><strong>⑥reduce()</strong>遍历数组、将数组元素进行组合（如加减乘除）生成单个值；接收两个参数1.执行的函数 2.初始化函数的值<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> data=[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">0</span>];</span><br><span class="line"><span class="keyword">var</span> j=<span class="number">0</span>;</span><br><span class="line">j=data.reduce(<span class="function"><span class="keyword">function</span>(<span class="params">x,y</span>)</span>&#123;<span class="keyword">return</span> x+y;&#125;,<span class="number">2</span>);     \/\/<span class="number">17</span></span><br></pre></td></tr></table></figure></p>
+<pre><code>注意：在使用空数组时并且省略第二个参数，也就是上面例子中第二个参数（<span class="number">2</span>）才会导致类型错误。另外，如果数组只有一个元素，就只是简单返回原来的值
+</code></pre><p><strong>⑦reduceRight()</strong>用途和reduce差不多都是操作两个元素加减乘除、也可指定可选参（初始值），只是他是从右到左处理数组（从高索引到低索引）<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> data=[<span class="number">4</span>,<span class="number">5</span>];</span><br><span class="line"><span class="keyword">var</span> j=<span class="number">0</span>;</span><br><span class="line">j=data.reduceRight(<span class="function"><span class="keyword">function</span>(<span class="params">x,y</span>)</span>&#123;<span class="keyword">return</span> x-y&#125;);</span><br><span class="line"><span class="built_in">console</span>.log(j);     <span class="comment">//输出1 如果把x和y互换位置会得到-1 这是因为高索引先作为参数传入</span></span><br></pre></td></tr></table></figure></p>
+<p><strong>⑧indexOf和lastIndexOf()</strong>搜索数组中具有给定值的元素，返回找到的元素的索引，如果没有找到返回-1。前者的从头开始搜索，后者则相反。和其他方法不同。他还接收第二个参数，指定数组的索引（从哪开始搜索）<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> data=[<span class="number">4</span>,<span class="number">5</span>,<span class="number">9</span>,<span class="number">5</span>,<span class="number">15</span>,<span class="number">14</span>,<span class="number">12</span>];</span><br><span class="line"><span class="keyword">var</span> j=data.lastIndexOf(<span class="number">6</span>)</span><br><span class="line"><span class="built_in">console</span>.log(j);     <span class="comment">//未找到，返回-1</span></span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yomtaaa.com/2015/08/30/Math/" data-id="cif7oalyt0009hwqi21h2ubga" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-transfrom" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/08/28/transfrom/" class="article-date">
+  <time datetime="2015-08-28T14:57:50.000Z" itemprop="datePublished">2015-08-28</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/08/28/transfrom/">Transform</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><strong>transform是css3新增加的， 能够对元素进行移动、缩放、转动、拉长或拉伸，首先我们来说说rotate()。</strong><br><strong>①rotate()</strong>是2D的转换方法，他接收一个参数，deg（度），可以传入任意度数，默认是顺时针旋转，传入负数则是逆时针旋转。<br><img src="../image/photo1.png" width="200px">transform的旋转是根据中心点进行旋转的，这一点可以用transform-origin来改变。注意，无论你如何旋转offsetWidth、offsetHeight、offsetLeft、offsetTop始终不变，始终是默认不旋转时的值。<br><strong>②移动的translate()</strong></p>
+<ul>
+<li>我们可以把他划分为三种情况：translate(x,y)     =&gt;     水平垂直两个方向同时移动<pre><code><span class="function"><span class="title">translateX</span><span class="params">(x)</span></span>      =&gt;     他只有一个参数，即水平移动
+<span class="function"><span class="title">translateY</span><span class="params">(y)</span></span>      =&gt;     他只有一个参数，即垂直移动
+</code></pre>应该有部分的人会认为这和定位差不多，都是用来控制元素位置的，但是实际上他和定位相比有很大的出入，有积极的影响也有消极的影响。<br>translate()的计算是相对于父元素，除非脱离普通流。<br><img src="../image/photo2.png"><br>设置了transform:translate(10px,0px)让他往左便宜10像素，再来看看下面的代码。<br><img src="../image/photo3.png"><br>之后给他加了绝对定位，意料之中，他脱离文本流，但是他的left值会在translate的基础上再偏移10像素。<br>他可能相对于定位来说会比较灵活，但是之后我又取消了绝对定位，给他加了一段js，局限性就显而易见了。<br>translate的偏移量没有算在offsetLeft里，既然没有算在offsetLeft里，那会对我们的操作有一定的影响。<br><strong>③scale()放大缩小</strong>，默认，宽度以中心点向左右两边扩大或缩小，高度则向上下两边扩大或缩小。<br><img src="../image/photo4.png"><br>可以看到在扩大缩小时一般会覆盖其他元素。注意，无论你如何扩大或缩小offsetWidth、offsetHeight、offsetLeft、offsetTop始终不变，始终是默认不变时的值。。<br><strong>④skew()翻转</strong><br>transform:skew(30deg,30deg);表面上看这个方法挺好理解，也就是沿着x轴与y轴各旋转30度，但是后来显示的图形又让我很不理解。<br><img src="../image/photo5.png"><br>这还看不出什么，如果改为60deg+就很离谱了，之所以会产生变形的，这是因为我给元素限定的高度是固定的，所以他都会保持着固定的高度，同时为了保持倾斜，只能拉长本身。<br><img src="../image/photo6.png"><br>这是skewY(),因为给了固定宽度，所以只能垂直拉伸，宽度固定。</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yomtaaa.com/2015/08/28/transfrom/" data-id="cif7oalyj0005hwqidrtvznhv" class="article-share-link">Share</a>
       
       
     </footer>
@@ -113,7 +282,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">August 2015</a><span class="archive-list-count">1</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">August 2015</a><span class="archive-list-count">5</span></li></ul>
     </div>
   </div>
 
@@ -125,7 +294,23 @@
       <ul>
         
           <li>
+            <a href="/2015/08/31/event/">你了解事件流吗？</a>
+          </li>
+        
+          <li>
             <a href="/2015/08/30/people/">遇见一些人，然后再与他们告别</a>
+          </li>
+        
+          <li>
+            <a href="/2015/08/30/dom/">DOM2范围</a>
+          </li>
+        
+          <li>
+            <a href="/2015/08/30/Math/">E5中数组的方法</a>
+          </li>
+        
+          <li>
+            <a href="/2015/08/28/transfrom/">Transform</a>
           </li>
         
       </ul>

@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>DOM2范围 | Daily life</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="除了IE，其余主流浏览器都支持DOM2的范围，然而IE用其特有的方式实现了范围特性（但IE9+支持）！Document类型中定义了createRange()，这个方法属于document对象，首先检测浏览器是否支持他：12var supportRange=document.implementation.hasFeature(&apos;Range&apos;,&apos;2.0&apos;);var supportRange2=(typ">
+<meta property="og:type" content="article">
+<meta property="og:title" content="DOM2范围">
+<meta property="og:url" content="http://yomtaaa.com/2015/08/30/dom/index.html">
+<meta property="og:site_name" content="Daily life">
+<meta property="og:description" content="除了IE，其余主流浏览器都支持DOM2的范围，然而IE用其特有的方式实现了范围特性（但IE9+支持）！Document类型中定义了createRange()，这个方法属于document对象，首先检测浏览器是否支持他：12var supportRange=document.implementation.hasFeature(&apos;Range&apos;,&apos;2.0&apos;);var supportRange2=(typ">
+<meta property="og:image" content="http://yomtaaa.com/../image/DOM/DOM-1.png">
+<meta property="og:image" content="http://yomtaaa.com/../image/DOM/DOM-2.png">
+<meta property="og:image" content="http://yomtaaa.com/../image/DOM/DOM-3.png">
+<meta property="og:image" content="http://yomtaaa.com/../image/DOM/DOM-4.png">
+<meta property="og:image" content="http://yomtaaa.com/../image/DOM/DOM-5.png">
+<meta property="og:image" content="http://yomtaaa.com/../image/DOM/DOM-6.png">
+<meta property="og:image" content="http://yomtaaa.com/../image/DOM/DOM-7.png">
+<meta property="og:image" content="http://yomtaaa.com/../image/DOM/DOM-8.png">
+<meta property="og:image" content="http://yomtaaa.com/../image/DOM/DOM-9.png">
+<meta property="og:image" content="http://yomtaaa.com/../image/DOM/DOM-10.png">
+<meta property="og:updated_time" content="2015-10-01T03:37:58.123Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="DOM2范围">
+<meta name="twitter:description" content="除了IE，其余主流浏览器都支持DOM2的范围，然而IE用其特有的方式实现了范围特性（但IE9+支持）！Document类型中定义了createRange()，这个方法属于document对象，首先检测浏览器是否支持他：12var supportRange=document.implementation.hasFeature(&apos;Range&apos;,&apos;2.0&apos;);var supportRange2=(typ">
+  
+    <link rel="alternative" href="/atom.xml" title="Daily life" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+  
+
+</head>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Daily life</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yomtaaa.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-dom" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/08/30/dom/" class="article-date">
+  <time datetime="2015-08-30T14:05:06.000Z" itemprop="datePublished">2015-08-30</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      DOM2范围
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><strong>除了IE，其余主流浏览器都支持DOM2的范围，然而IE用其特有的方式实现了范围特性（但IE9+支持）！</strong><br><br>Document类型中定义了createRange()，这个方法属于document对象，首先检测浏览器是否支持他：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> supportRange=<span class="built_in">document</span>.implementation.hasFeature(<span class="string">'Range'</span>,<span class="string">'2.0'</span>);</span><br><span class="line"><span class="keyword">var</span> supportRange2=(<span class="keyword">typeof</span> <span class="built_in">document</span>.createRange==<span class="string">'function'</span>);</span><br></pre></td></tr></table></figure></p>
+<p><img src="../image/DOM/DOM-1.png"><br><br>这是初步创建范围后在控制台输出的，拿其中较为关键的属性来说 <br><br><strong>1.startContainer与endContainer他们通常是指向相同元素（前者为选区中第一个元素的父节点，后者为选区中最后一个元素的父节点）</strong><br><br><strong>2.startOffset通常等于父节点的childNodes的第一个子节点的索引，在兼容DOM的浏览器中空格算为一个文本节点。</strong><br>要使用范围选择文档中的一部分，可以使用selectNode()和selectNodeContents()，他们都接收一个参数，即范围的起点，前者选择自身与子，后者只选择子。<br>为了更精确更方便地控制范围引入了一些更为方便的方法，如下：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">setStartBefore(refNode) =&gt;  将范围设置在refNode之前，即refNode是范围开始的第一个子节点，所以startContainer就是refNode的父节点</span><br><span class="line">setStartAfter(refNode)  =&gt;  将范围设置在refNode之后，即refNode的下一个同辈节点才是选区的第一个子节点，所以refNode不在范围之内</span><br><span class="line">setEndBefore(refNode)   =&gt;  将范围的终点设置在refNode之前，即refNode的上一个同辈节点是选区的最后一个子节点，所以refNode不在范围之内</span><br><span class="line">setEndAfter(refNode)    =&gt;  将范围的终点设置在refNode之后，即refNode是选区的最后一个子节点，所以refNode在范围之内</span><br></pre></td></tr></table></figure></p>
+<p>复杂操作：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">setStart(node, offset) =&gt; 设置起点的位置，node是对startContainer的引用，偏移则是startOffset</span><br><span class="line">setEnd(node, offset    =&gt; 设置结束点的位置，node是对endContainer的引用，偏移则是startOffset</span><br></pre></td></tr></table></figure></p>
+<p><img src="../image/DOM/DOM-2.png"><br><br>这段代码最后剩下<strong>H</strong>erld    虽然把范围内的文本删了，但是DOM结构仍然不会变。<br><br>与deleteContents()类似的方法有extractContents()，但后者这个方法会返回选区的内容，因此可以利用他来插入到页面的其他位置。<br><br>cloneContents()这个方法，如果只是要创建一个范围的副本而不去删除或移除范围的内容可以用他，语法名称代表用法，即克隆内容。<br>插入DOM范围中的内容：使用insertNode()方法可以在范围选区开始处插入一个节点。<br><img src="../image/DOM/DOM-3.png"><img src="../image/DOM/DOM-4.png"><br><br>在使用完范围之后，最好调用detach()方法，清理范围，回收内存,一旦分离了范围就不能再使用了。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">range.detach();     <span class="comment">// 从文档中分离</span></span><br><span class="line">range=<span class="literal">null</span>;          <span class="comment">//  解除引用</span></span><br></pre></td></tr></table></figure></p>
+<p>/<em>===========接下来说IE8及更低版本中的DOM范围=============</em>/<br><br>准确来说IE高版本以及低版本都支持文本范围，是IE独有的特性，其他浏览器不支持，语法名称代表用法，所以主要用于文本。<br><img src="../image/DOM/DOM-5.png"><img src="../image/DOM/DOM-6.png"><img src="../image/DOM/DOM-7.png"><br><br>选择某一区域用方法findText(),他会找到第一次出现的文本，然而他第二个参数如果为负值就会找最后一个匹配成功的文本，正值就会找到第一个匹配成功的文本，这也就说明了图中为什么找到hELLO而不是另外两个的原因了！<br><br>当中的变量found只要在匹配到文本时就会返回true，匹配不区分大小写在某些操作上也许会带来方便，可以用属性text，来获取范围选中的文本。<br><br>DOM范围有selectNode()而IE中有=&gt;moveToElementText() =&gt;这个方法接收一个DOM元素，并选择该元素的所有文本，包括HTML标签。如果在范围选区中包含HTML标签可以用属性htmlText读取范围全部内容。<br><br>属性text可以读取文本也可以修改文本，如下：<br><br><img src="../image/DOM/DOM-8.png"><img src="../image/DOM/DOM-9.png"><img src="../image/DOM/DOM-10.png"><br><br>可见hELLO的部分已经被替代成hello，但<b>标签没有被替代，如果想把标签替换掉可以用pasteHTML()，例如：range1.pasteHTML(‘<em>hello</em>‘);<br>但是上述做法会引起冲突，不提倡！<br><br>IE中使用方法duplicate()复制文本范围，如同cloneContents()，新创建的范围带有原范围相同的属性。例：var range=range.duplicate();</b></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yomtaaa.com/2015/08/30/dom/" data-id="cif7oalyt0008hwqi6g2r1hpb" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2015/08/30/people/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          遇见一些人，然后再与他们告别
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2015/08/30/Math/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">E5中数组的方法</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  
+    
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">August 2015</a><span class="archive-list-count">5</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recents</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2015/08/31/event/">你了解事件流吗？</a>
+          </li>
+        
+          <li>
+            <a href="/2015/08/30/people/">遇见一些人，然后再与他们告别</a>
+          </li>
+        
+          <li>
+            <a href="/2015/08/30/dom/">DOM2范围</a>
+          </li>
+        
+          <li>
+            <a href="/2015/08/30/Math/">E5中数组的方法</a>
+          </li>
+        
+          <li>
+            <a href="/2015/08/28/transfrom/">Transform</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2015 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+  <script src="/fancybox/jquery.fancybox.pack.js" type="text/javascript"></script>
+
+
+<script src="/js/script.js" type="text/javascript"></script>
+
+  </div>
+</body>
+</html>
