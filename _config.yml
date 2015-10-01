@@ -71,3 +71,4 @@ deploy:
   type: git
   repository: git@github.com:yomtaaa/yomtaaa.github.io.git
   branch: master
+duoshuo_shortname: yomtaaa
