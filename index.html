@@ -101,7 +101,7 @@
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://yomtaaa.cn/2015/08/31/event/" data-id="cif7y7usq00079cqik1aq0e4f" class="article-share-link" data-share="baidu" data-title="你了解事件流吗？">分享到</a>
+        <a data-url="http://yomtaaa.cn/2015/08/31/event/" data-id="cif7yikwc0007b8qizbjw7hnz" class="article-share-link" data-share="baidu" data-title="你了解事件流吗？">分享到</a>
       
 
       
@@ -144,7 +144,7 @@
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://yomtaaa.cn/2015/08/30/people/" data-id="cif7y7usq00069cqiaawvohru" class="article-share-link" data-share="baidu" data-title="遇见一些人，然后再与他们告别">分享到</a>
+        <a data-url="http://yomtaaa.cn/2015/08/30/people/" data-id="cif7yikwc0006b8qijjisem3x" class="article-share-link" data-share="baidu" data-title="遇见一些人，然后再与他们告别">分享到</a>
       
 
       
@@ -182,16 +182,16 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p><strong>除了IE，其余主流浏览器都支持DOM2的范围，然而IE用其特有的方式实现了范围特性（但IE9+支持）！</strong><br><br>Document类型中定义了createRange()，这个方法属于document对象，首先检测浏览器是否支持他：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> supportRange=<span class="built_in">document</span>.implementation.hasFeature(<span class="string">'Range'</span>,<span class="string">'2.0'</span>);</span><br><span class="line"><span class="keyword">var</span> supportRange2=(<span class="keyword">typeof</span> <span class="built_in">document</span>.createRange==<span class="string">'function'</span>);</span><br></pre></td></tr></table></figure></p>
-<p><img src="../image/DOM/DOM-1.png"><br><br>这是初步创建范围后在控制台输出的，拿其中较为关键的属性来说 <br><br><strong>1.startContainer与endContainer他们通常是指向相同元素（前者为选区中第一个元素的父节点，后者为选区中最后一个元素的父节点）</strong><br><br><strong>2.startOffset通常等于父节点的childNodes的第一个子节点的索引，在兼容DOM的浏览器中空格算为一个文本节点。</strong><br>要使用范围选择文档中的一部分，可以使用selectNode()和selectNodeContents()，他们都接收一个参数，即范围的起点，前者选择自身与子，后者只选择子。<br>为了更精确更方便地控制范围引入了一些更为方便的方法，如下：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">setStartBefore(refNode) =&gt;  将范围设置在refNode之前，即refNode是范围开始的第一个子节点，所以startContainer就是refNode的父节点</span><br><span class="line">setStartAfter(refNode)  =&gt;  将范围设置在refNode之后，即refNode的下一个同辈节点才是选区的第一个子节点，所以refNode不在范围之内</span><br><span class="line">setEndBefore(refNode)   =&gt;  将范围的终点设置在refNode之前，即refNode的上一个同辈节点是选区的最后一个子节点，所以refNode不在范围之内</span><br><span class="line">setEndAfter(refNode)    =&gt;  将范围的终点设置在refNode之后，即refNode是选区的最后一个子节点，所以refNode在范围之内</span><br></pre></td></tr></table></figure></p>
+<p><img src="../img/DOM/DOM-1.png"><br><br>这是初步创建范围后在控制台输出的，拿其中较为关键的属性来说 <br><br><strong>1.startContainer与endContainer他们通常是指向相同元素（前者为选区中第一个元素的父节点，后者为选区中最后一个元素的父节点）</strong><br><br><strong>2.startOffset通常等于父节点的childNodes的第一个子节点的索引，在兼容DOM的浏览器中空格算为一个文本节点。</strong><br>要使用范围选择文档中的一部分，可以使用selectNode()和selectNodeContents()，他们都接收一个参数，即范围的起点，前者选择自身与子，后者只选择子。<br>为了更精确更方便地控制范围引入了一些更为方便的方法，如下：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">setStartBefore(refNode) =&gt;  将范围设置在refNode之前，即refNode是范围开始的第一个子节点，所以startContainer就是refNode的父节点</span><br><span class="line">setStartAfter(refNode)  =&gt;  将范围设置在refNode之后，即refNode的下一个同辈节点才是选区的第一个子节点，所以refNode不在范围之内</span><br><span class="line">setEndBefore(refNode)   =&gt;  将范围的终点设置在refNode之前，即refNode的上一个同辈节点是选区的最后一个子节点，所以refNode不在范围之内</span><br><span class="line">setEndAfter(refNode)    =&gt;  将范围的终点设置在refNode之后，即refNode是选区的最后一个子节点，所以refNode在范围之内</span><br></pre></td></tr></table></figure></p>
 <p>复杂操作：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">setStart(node, offset) =&gt; 设置起点的位置，node是对startContainer的引用，偏移则是startOffset</span><br><span class="line">setEnd(node, offset    =&gt; 设置结束点的位置，node是对endContainer的引用，偏移则是startOffset</span><br></pre></td></tr></table></figure></p>
-<p><img src="../image/DOM/DOM-2.png"><br><br>这段代码最后剩下<strong>H</strong>erld    虽然把范围内的文本删了，但是DOM结构仍然不会变。<br><br>与deleteContents()类似的方法有extractContents()，但后者这个方法会返回选区的内容，因此可以利用他来插入到页面的其他位置。<br><br>cloneContents()这个方法，如果只是要创建一个范围的副本而不去删除或移除范围的内容可以用他，语法名称代表用法，即克隆内容。<br>插入DOM范围中的内容：使用insertNode()方法可以在范围选区开始处插入一个节点。<br><img src="../image/DOM/DOM-3.png"><img src="../image/DOM/DOM-4.png"><br><br>在使用完范围之后，最好调用detach()方法，清理范围，回收内存,一旦分离了范围就不能再使用了。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">range.detach();     <span class="comment">// 从文档中分离</span></span><br><span class="line">range=<span class="literal">null</span>;          <span class="comment">//  解除引用</span></span><br></pre></td></tr></table></figure></p>
-<p>/<em>===========接下来说IE8及更低版本中的DOM范围=============</em>/<br><br>准确来说IE高版本以及低版本都支持文本范围，是IE独有的特性，其他浏览器不支持，语法名称代表用法，所以主要用于文本。<br><img src="../image/DOM/DOM-5.png"><img src="../image/DOM/DOM-6.png"><img src="../image/DOM/DOM-7.png"><br><br>选择某一区域用方法findText(),他会找到第一次出现的文本，然而他第二个参数如果为负值就会找最后一个匹配成功的文本，正值就会找到第一个匹配成功的文本，这也就说明了图中为什么找到hELLO而不是另外两个的原因了！<br><br>当中的变量found只要在匹配到文本时就会返回true，匹配不区分大小写在某些操作上也许会带来方便，可以用属性text，来获取范围选中的文本。<br><br>DOM范围有selectNode()而IE中有=&gt;moveToElementText() =&gt;这个方法接收一个DOM元素，并选择该元素的所有文本，包括HTML标签。如果在范围选区中包含HTML标签可以用属性htmlText读取范围全部内容。<br><br>属性text可以读取文本也可以修改文本，如下：<br><br><img src="../image/DOM/DOM-8.png"><img src="../image/DOM/DOM-9.png"><img src="../image/DOM/DOM-10.png"><br><br>可见hELLO的部分已经被替代成hello，但<b>标签没有被替代，如果想把标签替换掉可以用pasteHTML()，例如：range1.pasteHTML(‘<em>hello</em>‘);<br>但是上述做法会引起冲突，不提倡！<br><br>IE中使用方法duplicate()复制文本范围，如同cloneContents()，新创建的范围带有原范围相同的属性。例：var range=range.duplicate();</b></p>
+<p><img src="../img/DOM/DOM-2.png"><br><br>这段代码最后剩下<strong>H</strong>erld    虽然把范围内的文本删了，但是DOM结构仍然不会变。<br><br>与deleteContents()类似的方法有extractContents()，但后者这个方法会返回选区的内容，因此可以利用他来插入到页面的其他位置。<br><br>cloneContents()这个方法，如果只是要创建一个范围的副本而不去删除或移除范围的内容可以用他，语法名称代表用法，即克隆内容。<br>插入DOM范围中的内容：使用insertNode()方法可以在范围选区开始处插入一个节点。<br><img src="../image/DOM/DOM-3.png"><img src="../img/DOM/DOM-4.png"><br><br>在使用完范围之后，最好调用detach()方法，清理范围，回收内存,一旦分离了范围就不能再使用了。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">range.detach();     <span class="comment">// 从文档中分离</span></span><br><span class="line">range=<span class="literal">null</span>;          <span class="comment">//  解除引用</span></span><br></pre></td></tr></table></figure></p>
+<p>/<em>===========接下来说IE8及更低版本中的DOM范围=============</em>/<br><br>准确来说IE高版本以及低版本都支持文本范围，是IE独有的特性，其他浏览器不支持，语法名称代表用法，所以主要用于文本。<br><img src="../img/DOM/DOM-5.png"><img src="../img/DOM/DOM-6.png"><img src="../img/DOM/DOM-7.png"><br><br>选择某一区域用方法findText(),他会找到第一次出现的文本，然而他第二个参数如果为负值就会找最后一个匹配成功的文本，正值就会找到第一个匹配成功的文本，这也就说明了图中为什么找到hELLO而不是另外两个的原因了！<br><br>当中的变量found只要在匹配到文本时就会返回true，匹配不区分大小写在某些操作上也许会带来方便，可以用属性text，来获取范围选中的文本。<br><br>DOM范围有selectNode()而IE中有=&gt;moveToElementText() =&gt;这个方法接收一个DOM元素，并选择该元素的所有文本，包括HTML标签。如果在范围选区中包含HTML标签可以用属性htmlText读取范围全部内容。<br><br>属性text可以读取文本也可以修改文本，如下：<br><br><img src="../img/DOM/DOM-8.png"><img src="../img/DOM/DOM-9.png"><img src="../img/DOM/DOM-10.png"><br><br>可见hELLO的部分已经被替代成hello，但<b>标签没有被替代，如果想把标签替换掉可以用pasteHTML()，例如：range1.pasteHTML(‘<em>hello</em>‘);<br>但是上述做法会引起冲突，不提倡！<br><br>IE中使用方法duplicate()复制文本范围，如同cloneContents()，新创建的范围带有原范围相同的属性。例：var range=range.duplicate();</b></p>
 
       
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://yomtaaa.cn/2015/08/30/dom/" data-id="cif7y7usq00089cqi8h3tp3vg" class="article-share-link" data-share="baidu" data-title="DOM2范围">分享到</a>
+        <a data-url="http://yomtaaa.cn/2015/08/30/dom/" data-id="cif7yikwc0008b8qibd1j90r7" class="article-share-link" data-share="baidu" data-title="DOM2范围">分享到</a>
       
 
       
@@ -242,7 +242,7 @@
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://yomtaaa.cn/2015/08/30/Math/" data-id="cif7y7usq00099cqi9mmlf2yp" class="article-share-link" data-share="baidu" data-title="E5中数组的方法">分享到</a>
+        <a data-url="http://yomtaaa.cn/2015/08/30/Math/" data-id="cif7yikwc0009b8qixlkcbwq4" class="article-share-link" data-share="baidu" data-title="E5中数组的方法">分享到</a>
       
 
       
@@ -279,18 +279,18 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><strong>transform是css3新增加的， 能够对元素进行移动、缩放、转动、拉长或拉伸，首先我们来说说rotate()。</strong><br><strong>①rotate()</strong>是2D的转换方法，他接收一个参数，deg（度），可以传入任意度数，默认是顺时针旋转，传入负数则是逆时针旋转。<br><img src="../image/photo1.png" width="200px">transform的旋转是根据中心点进行旋转的，这一点可以用transform-origin来改变。注意，无论你如何旋转offsetWidth、offsetHeight、offsetLeft、offsetTop始终不变，始终是默认不旋转时的值。<br><strong>②移动的translate()</strong></p>
+        <p><strong>transform是css3新增加的， 能够对元素进行移动、缩放、转动、拉长或拉伸，首先我们来说说rotate()。</strong><br><strong>①rotate()</strong>是2D的转换方法，他接收一个参数，deg（度），可以传入任意度数，默认是顺时针旋转，传入负数则是逆时针旋转。<br><img src="../img/photo1.png" width="200px">transform的旋转是根据中心点进行旋转的，这一点可以用transform-origin来改变。注意，无论你如何旋转offsetWidth、offsetHeight、offsetLeft、offsetTop始终不变，始终是默认不旋转时的值。<br><strong>②移动的translate()</strong></p>
 <ul>
 <li>我们可以把他划分为三种情况：translate(x,y)     =&gt;     水平垂直两个方向同时移动<pre><code><span class="function"><span class="title">translateX</span><span class="params">(x)</span></span>      =&gt;     他只有一个参数，即水平移动
 <span class="function"><span class="title">translateY</span><span class="params">(y)</span></span>      =&gt;     他只有一个参数，即垂直移动
-</code></pre>应该有部分的人会认为这和定位差不多，都是用来控制元素位置的，但是实际上他和定位相比有很大的出入，有积极的影响也有消极的影响。<br>translate()的计算是相对于父元素，除非脱离普通流。<br><img src="../image/photo2.png"><br>设置了transform:translate(10px,0px)让他往左便宜10像素，再来看看下面的代码。<br><img src="../image/photo3.png"><br>之后给他加了绝对定位，意料之中，他脱离文本流，但是他的left值会在translate的基础上再偏移10像素。<br>他可能相对于定位来说会比较灵活，但是之后我又取消了绝对定位，给他加了一段js，局限性就显而易见了。<br>translate的偏移量没有算在offsetLeft里，既然没有算在offsetLeft里，那会对我们的操作有一定的影响。<br><strong>③scale()放大缩小</strong>，默认，宽度以中心点向左右两边扩大或缩小，高度则向上下两边扩大或缩小。<br><img src="../image/photo4.png"><br>可以看到在扩大缩小时一般会覆盖其他元素。注意，无论你如何扩大或缩小offsetWidth、offsetHeight、offsetLeft、offsetTop始终不变，始终是默认不变时的值。。<br><strong>④skew()翻转</strong><br>transform:skew(30deg,30deg);表面上看这个方法挺好理解，也就是沿着x轴与y轴各旋转30度，但是后来显示的图形又让我很不理解。<br><img src="../image/photo5.png"><br>这还看不出什么，如果改为60deg+就很离谱了，之所以会产生变形的，这是因为我给元素限定的高度是固定的，所以他都会保持着固定的高度，同时为了保持倾斜，只能拉长本身。<br><img src="../image/photo6.png"><br>这是skewY(),因为给了固定宽度，所以只能垂直拉伸，宽度固定。</li>
+</code></pre>应该有部分的人会认为这和定位差不多，都是用来控制元素位置的，但是实际上他和定位相比有很大的出入，有积极的影响也有消极的影响。<br>translate()的计算是相对于父元素，除非脱离普通流。<br><img src="../img/photo2.png"><br>设置了transform:translate(10px,0px)让他往左便宜10像素，再来看看下面的代码。<br><img src="../img/photo3.png"><br>之后给他加了绝对定位，意料之中，他脱离文本流，但是他的left值会在translate的基础上再偏移10像素。<br>他可能相对于定位来说会比较灵活，但是之后我又取消了绝对定位，给他加了一段js，局限性就显而易见了。<br>translate的偏移量没有算在offsetLeft里，既然没有算在offsetLeft里，那会对我们的操作有一定的影响。<br><strong>③scale()放大缩小</strong>，默认，宽度以中心点向左右两边扩大或缩小，高度则向上下两边扩大或缩小。<br><img src="../img/photo4.png"><br>可以看到在扩大缩小时一般会覆盖其他元素。注意，无论你如何扩大或缩小offsetWidth、offsetHeight、offsetLeft、offsetTop始终不变，始终是默认不变时的值。。<br><strong>④skew()翻转</strong><br>transform:skew(30deg,30deg);表面上看这个方法挺好理解，也就是沿着x轴与y轴各旋转30度，但是后来显示的图形又让我很不理解。<br><img src="../img/photo5.png"><br>这还看不出什么，如果改为60deg+就很离谱了，之所以会产生变形的，这是因为我给元素限定的高度是固定的，所以他都会保持着固定的高度，同时为了保持倾斜，只能拉长本身。<br><img src="../img/photo6.png"><br>这是skewY(),因为给了固定宽度，所以只能垂直拉伸，宽度固定。</li>
 </ul>
 
       
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://yomtaaa.cn/2015/08/28/transfrom/" data-id="cif7y7usg00059cqiqsip7rte" class="article-share-link" data-share="baidu" data-title="Transform">分享到</a>
+        <a data-url="http://yomtaaa.cn/2015/08/28/transfrom/" data-id="cif7yikw20005b8qirpolvxxi" class="article-share-link" data-share="baidu" data-title="Transform">分享到</a>
       
 
       
