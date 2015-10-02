@@ -1,12 +1,45 @@
-
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html class="theme-next use-motion ">
 <head>
-  <meta charset="utf-8">
   
-  <title>Transform | Daily life</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="transform是css3新增加的， 能够对元素进行移动、缩放、转动、拉长或拉伸，首先我们来说说rotate()。①rotate()是2D的转换方法，他接收一个参数，deg（度），可以传入任意度数，默认是顺时针旋转，传入负数则是逆时针旋转。transform的旋转是根据中心点进行旋转的，这一点可以用transform-origin来改变。注意，无论你如何旋转offsetWidth、offsetH">
+
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+  <link rel="stylesheet" type="text/css" href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5"/>
+
+
+
+  <link href='//fonts.googleapis.com/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+
+
+<link rel="stylesheet" type="text/css" href="/css/main.css?v=0.4.5.1"/>
+
+
+
+
+  <meta name="keywords" content="Hexo,next" />
+
+
+
+
+
+  <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.1" />
+
+
+<meta name="description" content="transform是css3新增加的， 能够对元素进行移动、缩放、转动、拉长或拉伸，首先我们来说说rotate()。①rotate()是2D的转换方法，他接收一个参数，deg（度），可以传入任意度数，默认是顺时针旋转，传入负数则是逆时针旋转。transform的旋转是根据中心点进行旋转的，这一点可以用transform-origin来改变。注意，无论你如何旋转offsetWidth、offsetH">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Transform">
 <meta property="og:url" content="http://yomtaaa.cn/2015/08/28/transfrom/index.html">
@@ -22,276 +55,552 @@
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Transform">
 <meta name="twitter:description" content="transform是css3新增加的， 能够对元素进行移动、缩放、转动、拉长或拉伸，首先我们来说说rotate()。①rotate()是2D的转换方法，他接收一个参数，deg（度），可以传入任意度数，默认是顺时针旋转，传入负数则是逆时针旋转。transform的旋转是根据中心点进行旋转的，这一点可以用transform-origin来改变。注意，无论你如何旋转offsetWidth、offsetH">
-  
-    <link rel="alternative" href="/atom.xml" title="Daily life" type="application/atom+xml">
-  
-  
-    <link rel="icon" href="/favicon.png">
-  
-  <link rel="stylesheet" href="/css/style.css" type="text/css">
-  <link href="//fonts.useso.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
-  <!--[if lt IE 9]><script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7/html5shiv.min.js"></script><![endif]-->
-  
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var CONFIG = {
+    scheme: '',
+    sidebar: 'post'
+  };
+</script>
+
+  <title> Transform | Daily life </title>
 </head>
-<body>
-<div id="container">
-  <div id="wrap">
-    <header id="header">
-  <div id="banner"></div>
-  <div id="header-outer" class="outer">
-    <div id="header-title" class="inner">
-      <h1 id="logo-wrap">
-        <a href="/" id="logo">Daily life</a>
-      </h1>
-      
-    </div>
-    <div id="header-inner" class="inner">
-      <nav id="main-nav">
-        <a id="main-nav-toggle" class="nav-icon"></a>
-        
-          <a class="main-nav-link" href="/">Home</a>
-        
-          <a class="main-nav-link" href="/archives">Archives</a>
-        
-      </nav>
-      <nav id="sub-nav">
-        
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
-        
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
-      </nav>
-      <div id="search-form-wrap">
-        <form action="http://www.baidu.com/baidu" method="get" accept-charset="utf-8" class="search-form">
-          <input type="search" name="word" maxlength="20" class="search-form-input" placeholder="Search">
-          <input type="submit" value="" class="search-form-submit">
-          <input name=tn type=hidden value="bds">
-          <input name=cl type=hidden value="3">
-          <input name=ct type=hidden value="2097152">
-          <input type="hidden" name="si" value="yomtaaa.cn">
-        </form>
-      </div>
-    </div>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="">
+
+  <!--[if lte IE 8]>
+  <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'>
+    <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
+      <img src="http://7u2nvr.com1.z0.glb.clouddn.com/picouterie.jpg" border="0" height="42" width="820"
+           alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today or use other browser ,like chrome firefox safari."
+           style='margin-left:auto;margin-right:auto;display: block;'/>
+    </a>
   </div>
-</header>
-    <div class="outer">
-      <section id="main"><article id="post-transfrom" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2015/08/28/transfrom/" class="article-date">
-  <time datetime="2015-08-28T14:57:50.000Z" itemprop="datePublished">2015-08-28</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="article-title" itemprop="name">
-      Transform
-    </h1>
+<![endif]-->
   
 
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
+
+
+  <div class="container one-column page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><h1 class="site-meta">
+  <span class="logo-line-before"><i></i></span>
+  <a href="/" class="brand" rel="start">
+      <span class="logo">
+        <i class="icon-next-logo"></i>
+      </span>
+      <span class="site-title">Daily life</span>
+  </a>
+  <span class="logo-line-after"><i></i></span>
+</h1>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu ">
       
-        <p><strong>transform是css3新增加的， 能够对元素进行移动、缩放、转动、拉长或拉伸，首先我们来说说rotate()。</strong><br><strong>①rotate()</strong>是2D的转换方法，他接收一个参数，deg（度），可以传入任意度数，默认是顺时针旋转，传入负数则是逆时针旋转。<br><img src="../img/photo1.png" width="200px">transform的旋转是根据中心点进行旋转的，这一点可以用transform-origin来改变。注意，无论你如何旋转offsetWidth、offsetHeight、offsetLeft、offsetTop始终不变，始终是默认不旋转时的值。<br><strong>②移动的translate()</strong></p>
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            <i class="menu-item-icon icon-next-home"></i> <br />
+            首頁
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            <i class="menu-item-icon icon-next-archives"></i> <br />
+            歸檔
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            <i class="menu-item-icon icon-next-tags"></i> <br />
+            標籤
+          </a>
+        </li>
+      
+
+      
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div id="content" class="content"> 
+
+  <div id="posts" class="posts-expand">
+    
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      
+      
+        <h1 class="post-title" itemprop="name headline">
+          
+          
+            
+              Transform
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          發表於
+          <time itemprop="dateCreated" datetime="2015-08-28T22:57:50+08:00" content="2015-08-28">
+            2015-08-28
+          </time>
+        </span>
+
+        
+
+        
+          
+            <span class="post-comments-count">
+              &nbsp; | &nbsp;
+              <a href="/2015/08/28/transfrom/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2015/08/28/transfrom/" itemprop="commentsCount"></span>
+              </a>
+            </span>
+          
+        
+      </div>
+    </header>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        <span itemprop="articleBody"><p><strong>transform是css3新增加的， 能够对元素进行移动、缩放、转动、拉长或拉伸，首先我们来说说rotate()。</strong><br><strong>①rotate()</strong>是2D的转换方法，他接收一个参数，deg（度），可以传入任意度数，默认是顺时针旋转，传入负数则是逆时针旋转。<br><img src="../img/photo1.png" width="200px">transform的旋转是根据中心点进行旋转的，这一点可以用transform-origin来改变。注意，无论你如何旋转offsetWidth、offsetHeight、offsetLeft、offsetTop始终不变，始终是默认不旋转时的值。<br><strong>②移动的translate()</strong></p>
 <ul>
 <li>我们可以把他划分为三种情况：translate(x,y)     =&gt;     水平垂直两个方向同时移动<pre><code><span class="function"><span class="title">translateX</span><span class="params">(x)</span></span>      =&gt;     他只有一个参数，即水平移动
 <span class="function"><span class="title">translateY</span><span class="params">(y)</span></span>      =&gt;     他只有一个参数，即垂直移动
 </code></pre>应该有部分的人会认为这和定位差不多，都是用来控制元素位置的，但是实际上他和定位相比有很大的出入，有积极的影响也有消极的影响。<br>translate()的计算是相对于父元素，除非脱离普通流。<br><img src="../img/photo2.png"><br>设置了transform:translate(10px,0px)让他往左便宜10像素，再来看看下面的代码。<br><img src="../img/photo3.png"><br>之后给他加了绝对定位，意料之中，他脱离文本流，但是他的left值会在translate的基础上再偏移10像素。<br>他可能相对于定位来说会比较灵活，但是之后我又取消了绝对定位，给他加了一段js，局限性就显而易见了。<br>translate的偏移量没有算在offsetLeft里，既然没有算在offsetLeft里，那会对我们的操作有一定的影响。<br><strong>③scale()放大缩小</strong>，默认，宽度以中心点向左右两边扩大或缩小，高度则向上下两边扩大或缩小。<br><img src="../img/photo4.png"><br>可以看到在扩大缩小时一般会覆盖其他元素。注意，无论你如何扩大或缩小offsetWidth、offsetHeight、offsetLeft、offsetTop始终不变，始终是默认不变时的值。。<br><strong>④skew()翻转</strong><br>transform:skew(30deg,30deg);表面上看这个方法挺好理解，也就是沿着x轴与y轴各旋转30度，但是后来显示的图形又让我很不理解。<br><img src="../img/photo5.png"><br>这还看不出什么，如果改为60deg+就很离谱了，之所以会产生变形的，这是因为我给元素限定的高度是固定的，所以他都会保持着固定的高度，同时为了保持倾斜，只能拉长本身。<br><img src="../img/photo6.png"><br>这是skewY(),因为给了固定宽度，所以只能垂直拉伸，宽度固定。</li>
 </ul>
-
+</span>
       
     </div>
-    <footer class="article-footer">
-      
-        <a data-url="http://yomtaaa.cn/2015/08/28/transfrom/" data-id="cif80l5a60005hcqi74qx22st" class="article-share-link" data-share="baidu" data-title="Transform">分享到</a>
+
+    <footer class="post-footer">
       
 
       
-        <a href="http://yomtaaa.cn/2015/08/28/transfrom/#ds-thread" class="article-comment-link">評論</a>
+        <div class="post-nav">
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2015/08/30/Math/" rel="prev">E5中数组的方法</a>
+            
+          </div>
+
+          <div class="post-nav-next post-nav-item">
+            
+          </div>
+        </div>
       
 
+      
       
     </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
   </div>
-  
-    
-<nav id="article-nav">
-  
-    <a href="/2015/08/30/Math/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">下一篇</strong>
-      <div class="article-nav-title">
+
+ </div>
+
         
-          E5中数组的方法
+
+        
+          <div class="comments" id="comments">
+            
+              <div class="ds-thread" data-thread-key="2015/08/28/transfrom/"
+                   data-title="Transform" data-url="http://yomtaaa.cn/2015/08/28/transfrom/">
+              </div>
+            
+          </div>
         
       </div>
-    </a>
-  
-  
-</nav>
 
-  
-</article>
-
-
-  <section id="comments">
-    <div id="ds-thread" class="ds-thread" data-thread-key="2015/08/28/transfrom/" data-title="Transform" data-url="http://yomtaaa.cn/2015/08/28/transfrom/"></div>
-  </section>
-</section>
       
-      <aside id="sidebar">
   
-    
-  
-    
-  
-    
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">歸檔</h3>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">August 2015</a><span class="archive-list-count">5</span></li></ul>
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
     </div>
   </div>
 
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">近期文章</h3>
-    <div class="widget">
-      <ul>
-        
-          <li>
-            <a href="/2015/08/31/event/">你了解事件流吗？</a>
-          </li>
-        
-          <li>
-            <a href="/2015/08/30/people/">遇见一些人，然后再与他们告别</a>
-          </li>
-        
-          <li>
-            <a href="/2015/08/30/dom/">DOM2范围</a>
-          </li>
-        
-          <li>
-            <a href="/2015/08/30/Math/">E5中数组的方法</a>
-          </li>
-        
-          <li>
-            <a href="/2015/08/28/transfrom/">Transform</a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
 
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">友情鏈接</h3>
-    <div class="widget">
-      <ul>
-        
-          <li>
-            <a href="feng.moe" target="_blank">Jichun</a>
-          </li>
-        
-          <li>
-            <a href="frankwei.ml" target="_blank">Frank</a>
-          </li>
-        
-          <li>
-            <a href="touko.moe" target="_blank">Touko</a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
-
-  
-</aside>
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目錄
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            本站概覽
+          </li>
+        </ul>
+      
+
+      <section class="site-overview">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" src="/images/default_avatar.jpg" alt="John Doe" itemprop="image"/>
+          <p class="site-author-name" itemprop="name">John Doe</p>
+        </div>
+        <p class="site-description motion-element" itemprop="description"></p>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">5</span>
+              <span class="site-state-item-name">文章</span>
+            </a>
+          </div>
+
+          <div class="site-state-item site-state-categories">
+            
+              <span class="site-state-item-count">0</span>
+              <span class="site-state-item-name">分類</span>
+              
+          </div>
+
+          <div class="site-state-item site-state-tags">
+            <a href="/tags">
+              <span class="site-state-item-count">0</span>
+              <span class="site-state-item-name">標籤</span>
+              </a>
+          </div>
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+      </section>
+
+      
+        <section class="post-toc-wrap sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator"></div>
+          <div class="post-toc">
+            
+            
+              <p class="post-toc-empty">此文章未包含目錄</p>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator"></div>
+        </section>
+      
+
     </div>
-    <footer id="footer">
+  </aside>
+
+
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner"> <div class="copyright" >
   
-  <div class="outer">
-    <div id="footer-info" class="inner">
-      &copy; 2015 John Doe<br>
-      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
-      .
-      Theme by <a href="https://github.com/xiangming/landscape-plus" target="_blank">Landscape-plus</a>
-    </div>
-  </div>
-</footer>
-  </div>
-  <nav id="mobile-nav">
-  
-    <a href="/" class="mobile-nav-link">Home</a>
-  
-    <a href="/archives" class="mobile-nav-link">Archives</a>
-  
-</nav>
-  <!-- totop start -->
-<div id="totop">
-<a title="返回頂部"><img src="/img/scrollup.png"/></a>
+  &copy; &nbsp; 
+  <span itemprop="copyrightYear">2015</span>
+  <span class="with-love">
+    <i class="icon-next-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">John Doe</span>
 </div>
 
-<!-- totop end -->
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 強力驅動
+</div>
 
-<!-- 多说公共js代码 start -->
-<script type="text/javascript">
-var duoshuoQuery = {short_name:"yomtaaa"};
-  (function() {
-    var ds = document.createElement('script');
-    ds.type = 'text/javascript';ds.async = true;
-    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-    ds.charset = 'UTF-8';
-    (document.getElementsByTagName('head')[0]
-     || document.getElementsByTagName('body')[0]).appendChild(ds);
-  })();
+<div class="theme-info">
+  主題 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT
+  </a>
+</div>
+
+
+ </div>
+    </footer>
+
+    <div class="back-to-top"></div>
+  </div>
+
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  
+  
+    
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"yomtaaa"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
   </script>
-<!-- 多说公共js代码 end -->
+    
+     
+
+    
+  
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+  <script type="text/javascript" src="/js/fancy-box.js?v=0.4.5.1"></script>
 
 
-<!-- 百度分享 start -->
+  <script type="text/javascript" src="/js/helpers.js?v=0.4.5.1"></script>
+  
 
-<div id="article-share-box" class="article-share-box">
-  <div id="bdshare" class="bdsharebuttonbox article-share-links">
-    <a class="article-share-weibo" data-cmd="tsina" title="分享到新浪微博"></a>
-    <a class="article-share-weixin" data-cmd="weixin" title="分享到微信"></a>
-    <a class="article-share-qq" data-cmd="sqq" title="分享到QQ"></a>
-    <a class="article-share-renren" data-cmd="renren" title="分享到人人网"></a>
-    <a class="article-share-more" data-cmd="more" title="更多"></a>
-  </div>
-</div>
-<script>
-  function SetShareData(cmd, config) {
-    if (shareDataTitle && shareDataUrl) {
-      config.bdText = shareDataTitle;
-      config.bdUrl = shareDataUrl;
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+  <script type="text/javascript" src="/js/motion_global.js?v=0.4.5.1" id="motion.global"></script>
+
+
+
+
+  <script type="text/javascript" src="/js/nav-toggle.js?v=0.4.5.1"></script>
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  
+<script type="text/javascript" src="/js/bootstrap.scrollspy.js?v=0.4.5.1" id="bootstrap.scrollspy.custom"></script>
+
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
     }
-    return config;
-  }
-  window._bd_share_config={
-    "common":{onBeforeClick: SetShareData},
-    "share":{"bdCustomStyle":"/css/bdshare.css"}
-  };
-  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.motion.complete', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      var $indicator = $(indicator);
+      var opacity = action === 'show' ? 0.4 : 0;
+      $indicator.velocity ?
+        $indicator.velocity('stop').velocity({
+          opacity: opacity
+        }, { duration: 100 }) :
+        $indicator.stop().animate({
+          opacity: opacity
+        }, 100);
+    }
+
+  });
 </script>
 
-<!-- 百度分享 end -->
+<script type="text/javascript" id="sidebar.nav">
+  $(document).ready(function () {
+    var html = $('html');
+    var TAB_ANIMATE_DURATION = 200;
+    var hasVelocity = $.isFunction(html.velocity);
 
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    $('.sidebar-nav li').on('click', function () {
+      var item = $(this);
+      var activeTabClassName = 'sidebar-nav-active';
+      var activePanelClassName = 'sidebar-panel-active';
+      if (item.hasClass(activeTabClassName)) {
+        return;
+      }
+
+      var currentTarget = $('.' + activePanelClassName);
+      var target = $('.' + item.data('target'));
+
+      hasVelocity ?
+        currentTarget.velocity('transition.slideUpOut', TAB_ANIMATE_DURATION, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', TAB_ANIMATE_DURATION)
+            .addClass(activePanelClassName);
+        }) :
+        currentTarget.animate({ opacity: 0 }, TAB_ANIMATE_DURATION, function () {
+          currentTarget.hide();
+          target
+            .stop()
+            .css({'opacity': 0, 'display': 'block'})
+            .animate({ opacity: 1 }, TAB_ANIMATE_DURATION, function () {
+              currentTarget.removeClass(activePanelClassName);
+              target.addClass(activePanelClassName);
+            });
+        });
+
+      item.siblings().removeClass(activeTabClassName);
+      item.addClass(activeTabClassName);
+    });
+
+    $('.post-toc a').on('click', function (e) {
+      e.preventDefault();
+      var targetSelector = escapeSelector(this.getAttribute('href'));
+      var offset = $(targetSelector).offset().top;
+      hasVelocity ?
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        }) :
+        $('html, body').stop().animate({
+          scrollTop: offset
+        }, 500);
+    });
+
+    // Expand sidebar on post detail page by default, when post has a toc.
+    var $tocContent = $('.post-toc-content');
+    if (isDesktop() && CONFIG.sidebar === 'post') {
+      if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
+        displaySidebar();
+      }
+    }
+  });
+</script>
 
 
 
+  <script type="text/javascript">
+    $(document).ready(function () {
+      if (CONFIG.sidebar === 'always') {
+        displaySidebar();
+      }
+      if (isMobile()) {
+        FastClick.attach(document.body);
+      }
+    });
+  </script>
 
-<script src="/js/script.js" type="text/javascript"></script>
+  
 
-</div>
+  
+  
+
+  
+  <script type="text/javascript" src="/js/lazyload.js"></script>
+  <script type="text/javascript">
+    $(function () {
+      $("#posts").find('img').lazyload({
+        placeholder: "/images/loading.gif",
+        effect: "fadeIn"
+      });
+    });
+  </script>
 </body>
 </html>

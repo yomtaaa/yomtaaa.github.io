@@ -1,12 +1,45 @@
-
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html class="theme-next use-motion ">
 <head>
-  <meta charset="utf-8">
   
-  <title>DOM2范围 | Daily life</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="除了IE，其余主流浏览器都支持DOM2的范围，然而IE用其特有的方式实现了范围特性（但IE9+支持）！Document类型中定义了createRange()，这个方法属于document对象，首先检测浏览器是否支持他：12var supportRange=document.implementation.hasFeature(&apos;Range&apos;,&apos;2.0&apos;);var supportRange2=(typ">
+
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+  <link rel="stylesheet" type="text/css" href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5"/>
+
+
+
+  <link href='//fonts.googleapis.com/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+
+
+<link rel="stylesheet" type="text/css" href="/css/main.css?v=0.4.5.1"/>
+
+
+
+
+  <meta name="keywords" content="Hexo,next" />
+
+
+
+
+
+  <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.1" />
+
+
+<meta name="description" content="除了IE，其余主流浏览器都支持DOM2的范围，然而IE用其特有的方式实现了范围特性（但IE9+支持）！Document类型中定义了createRange()，这个方法属于document对象，首先检测浏览器是否支持他：12var supportRange=document.implementation.hasFeature(&apos;Range&apos;,&apos;2.0&apos;);var supportRange2=(typ">
 <meta property="og:type" content="article">
 <meta property="og:title" content="DOM2范围">
 <meta property="og:url" content="http://yomtaaa.cn/2015/08/30/dom/index.html">
@@ -26,280 +59,553 @@
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="DOM2范围">
 <meta name="twitter:description" content="除了IE，其余主流浏览器都支持DOM2的范围，然而IE用其特有的方式实现了范围特性（但IE9+支持）！Document类型中定义了createRange()，这个方法属于document对象，首先检测浏览器是否支持他：12var supportRange=document.implementation.hasFeature(&apos;Range&apos;,&apos;2.0&apos;);var supportRange2=(typ">
-  
-    <link rel="alternative" href="/atom.xml" title="Daily life" type="application/atom+xml">
-  
-  
-    <link rel="icon" href="/favicon.png">
-  
-  <link rel="stylesheet" href="/css/style.css" type="text/css">
-  <link href="//fonts.useso.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
-  <!--[if lt IE 9]><script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7/html5shiv.min.js"></script><![endif]-->
-  
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var CONFIG = {
+    scheme: '',
+    sidebar: 'post'
+  };
+</script>
+
+  <title> DOM2范围 | Daily life </title>
 </head>
-<body>
-<div id="container">
-  <div id="wrap">
-    <header id="header">
-  <div id="banner"></div>
-  <div id="header-outer" class="outer">
-    <div id="header-title" class="inner">
-      <h1 id="logo-wrap">
-        <a href="/" id="logo">Daily life</a>
-      </h1>
-      
-    </div>
-    <div id="header-inner" class="inner">
-      <nav id="main-nav">
-        <a id="main-nav-toggle" class="nav-icon"></a>
-        
-          <a class="main-nav-link" href="/">Home</a>
-        
-          <a class="main-nav-link" href="/archives">Archives</a>
-        
-      </nav>
-      <nav id="sub-nav">
-        
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
-        
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
-      </nav>
-      <div id="search-form-wrap">
-        <form action="http://www.baidu.com/baidu" method="get" accept-charset="utf-8" class="search-form">
-          <input type="search" name="word" maxlength="20" class="search-form-input" placeholder="Search">
-          <input type="submit" value="" class="search-form-submit">
-          <input name=tn type=hidden value="bds">
-          <input name=cl type=hidden value="3">
-          <input name=ct type=hidden value="2097152">
-          <input type="hidden" name="si" value="yomtaaa.cn">
-        </form>
-      </div>
-    </div>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="">
+
+  <!--[if lte IE 8]>
+  <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'>
+    <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
+      <img src="http://7u2nvr.com1.z0.glb.clouddn.com/picouterie.jpg" border="0" height="42" width="820"
+           alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today or use other browser ,like chrome firefox safari."
+           style='margin-left:auto;margin-right:auto;display: block;'/>
+    </a>
   </div>
-</header>
-    <div class="outer">
-      <section id="main"><article id="post-dom" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2015/08/30/dom/" class="article-date">
-  <time datetime="2015-08-30T14:05:06.000Z" itemprop="datePublished">2015-08-30</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="article-title" itemprop="name">
-      DOM2范围
-    </h1>
+<![endif]-->
   
 
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
+
+
+  <div class="container one-column page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><h1 class="site-meta">
+  <span class="logo-line-before"><i></i></span>
+  <a href="/" class="brand" rel="start">
+      <span class="logo">
+        <i class="icon-next-logo"></i>
+      </span>
+      <span class="site-title">Daily life</span>
+  </a>
+  <span class="logo-line-after"><i></i></span>
+</h1>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu ">
       
-        <p><strong>除了IE，其余主流浏览器都支持DOM2的范围，然而IE用其特有的方式实现了范围特性（但IE9+支持）！</strong><br><br>Document类型中定义了createRange()，这个方法属于document对象，首先检测浏览器是否支持他：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> supportRange=<span class="built_in">document</span>.implementation.hasFeature(<span class="string">'Range'</span>,<span class="string">'2.0'</span>);</span><br><span class="line"><span class="keyword">var</span> supportRange2=(<span class="keyword">typeof</span> <span class="built_in">document</span>.createRange==<span class="string">'function'</span>);</span><br></pre></td></tr></table></figure></p>
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            <i class="menu-item-icon icon-next-home"></i> <br />
+            首頁
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            <i class="menu-item-icon icon-next-archives"></i> <br />
+            歸檔
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            <i class="menu-item-icon icon-next-tags"></i> <br />
+            標籤
+          </a>
+        </li>
+      
+
+      
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div id="content" class="content"> 
+
+  <div id="posts" class="posts-expand">
+    
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      
+      
+        <h1 class="post-title" itemprop="name headline">
+          
+          
+            
+              DOM2范围
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          發表於
+          <time itemprop="dateCreated" datetime="2015-08-30T22:05:06+08:00" content="2015-08-30">
+            2015-08-30
+          </time>
+        </span>
+
+        
+
+        
+          
+            <span class="post-comments-count">
+              &nbsp; | &nbsp;
+              <a href="/2015/08/30/dom/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2015/08/30/dom/" itemprop="commentsCount"></span>
+              </a>
+            </span>
+          
+        
+      </div>
+    </header>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        <span itemprop="articleBody"><p><strong>除了IE，其余主流浏览器都支持DOM2的范围，然而IE用其特有的方式实现了范围特性（但IE9+支持）！</strong><br><br>Document类型中定义了createRange()，这个方法属于document对象，首先检测浏览器是否支持他：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> supportRange=<span class="built_in">document</span>.implementation.hasFeature(<span class="string">'Range'</span>,<span class="string">'2.0'</span>);</span><br><span class="line"><span class="keyword">var</span> supportRange2=(<span class="keyword">typeof</span> <span class="built_in">document</span>.createRange==<span class="string">'function'</span>);</span><br></pre></td></tr></table></figure></p>
 <p><img src="../image/DOM/DOM-1.png"><br><br>这是初步创建范围后在控制台输出的，拿其中较为关键的属性来说 <br><br><strong>1.startContainer与endContainer他们通常是指向相同元素（前者为选区中第一个元素的父节点，后者为选区中最后一个元素的父节点）</strong><br><br><strong>2.startOffset通常等于父节点的childNodes的第一个子节点的索引，在兼容DOM的浏览器中空格算为一个文本节点。</strong><br>要使用范围选择文档中的一部分，可以使用selectNode()和selectNodeContents()，他们都接收一个参数，即范围的起点，前者选择自身与子，后者只选择子。<br>为了更精确更方便地控制范围引入了一些更为方便的方法，如下：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">setStartBefore(refNode) =&gt;  将范围设置在refNode之前，即refNode是范围开始的第一个子节点，所以startContainer就是refNode的父节点</span><br><span class="line">setStartAfter(refNode)  =&gt;  将范围设置在refNode之后，即refNode的下一个同辈节点才是选区的第一个子节点，所以refNode不在范围之内</span><br><span class="line">setEndBefore(refNode)   =&gt;  将范围的终点设置在refNode之前，即refNode的上一个同辈节点是选区的最后一个子节点，所以refNode不在范围之内</span><br><span class="line">setEndAfter(refNode)    =&gt;  将范围的终点设置在refNode之后，即refNode是选区的最后一个子节点，所以refNode在范围之内</span><br></pre></td></tr></table></figure></p>
 <p>复杂操作：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">setStart(node, offset) =&gt; 设置起点的位置，node是对startContainer的引用，偏移则是startOffset</span><br><span class="line">setEnd(node, offset    =&gt; 设置结束点的位置，node是对endContainer的引用，偏移则是startOffset</span><br></pre></td></tr></table></figure></p>
 <p><img src="../image/DOM/DOM-2.png"><br><br>这段代码最后剩下<strong>H</strong>erld    虽然把范围内的文本删了，但是DOM结构仍然不会变。<br><br>与deleteContents()类似的方法有extractContents()，但后者这个方法会返回选区的内容，因此可以利用他来插入到页面的其他位置。<br><br>cloneContents()这个方法，如果只是要创建一个范围的副本而不去删除或移除范围的内容可以用他，语法名称代表用法，即克隆内容。<br>插入DOM范围中的内容：使用insertNode()方法可以在范围选区开始处插入一个节点。<br><img src="../image/DOM/DOM-3.png"><img src="../image/DOM/DOM-4.png"><br><br>在使用完范围之后，最好调用detach()方法，清理范围，回收内存,一旦分离了范围就不能再使用了。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">range.detach();     <span class="comment">// 从文档中分离</span></span><br><span class="line">range=<span class="literal">null</span>;          <span class="comment">//  解除引用</span></span><br></pre></td></tr></table></figure></p>
 <p>/<em>===========接下来说IE8及更低版本中的DOM范围=============</em>/<br><br>准确来说IE高版本以及低版本都支持文本范围，是IE独有的特性，其他浏览器不支持，语法名称代表用法，所以主要用于文本。<br><img src="../image/DOM/DOM-5.png"><img src="../image/DOM/DOM-6.png"><img src="../image/DOM/DOM-7.png"><br><br>选择某一区域用方法findText(),他会找到第一次出现的文本，然而他第二个参数如果为负值就会找最后一个匹配成功的文本，正值就会找到第一个匹配成功的文本，这也就说明了图中为什么找到hELLO而不是另外两个的原因了！<br><br>当中的变量found只要在匹配到文本时就会返回true，匹配不区分大小写在某些操作上也许会带来方便，可以用属性text，来获取范围选中的文本。<br><br>DOM范围有selectNode()而IE中有=&gt;moveToElementText() =&gt;这个方法接收一个DOM元素，并选择该元素的所有文本，包括HTML标签。如果在范围选区中包含HTML标签可以用属性htmlText读取范围全部内容。<br><br>属性text可以读取文本也可以修改文本，如下：<br><br><img src="../image/DOM/DOM-8.png"><img src="../image/DOM/DOM-9.png"><img src="../image/DOM/DOM-10.png"><br><br>可见hELLO的部分已经被替代成hello，但<b>标签没有被替代，如果想把标签替换掉可以用pasteHTML()，例如：range1.pasteHTML(‘<em>hello</em>‘);<br>但是上述做法会引起冲突，不提倡！<br><br>IE中使用方法duplicate()复制文本范围，如同cloneContents()，新创建的范围带有原范围相同的属性。例：var range=range.duplicate();</b></p>
-
+</span>
       
     </div>
-    <footer class="article-footer">
-      
-        <a data-url="http://yomtaaa.cn/2015/08/30/dom/" data-id="cif80l5ag0008hcqixqj2epke" class="article-share-link" data-share="baidu" data-title="DOM2范围">分享到</a>
+
+    <footer class="post-footer">
       
 
       
-        <a href="http://yomtaaa.cn/2015/08/30/dom/#ds-thread" class="article-comment-link">評論</a>
+        <div class="post-nav">
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2015/08/30/people/" rel="prev">遇见一些人，然后再与他们告别</a>
+            
+          </div>
+
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/08/30/Math/" rel="next">E5中数组的方法</a>
+            
+          </div>
+        </div>
       
 
+      
       
     </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
   </div>
-  
-    
-<nav id="article-nav">
-  
-    <a href="/2015/08/30/people/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">下一篇</strong>
-      <div class="article-nav-title">
+
+ </div>
+
         
-          遇见一些人，然后再与他们告别
+
+        
+          <div class="comments" id="comments">
+            
+              <div class="ds-thread" data-thread-key="2015/08/30/dom/"
+                   data-title="DOM2范围" data-url="http://yomtaaa.cn/2015/08/30/dom/">
+              </div>
+            
+          </div>
         
       </div>
-    </a>
-  
-  
-    <a href="/2015/08/30/Math/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">上一篇</strong>
-      <div class="article-nav-title">E5中数组的方法</div>
-    </a>
-  
-</nav>
 
-  
-</article>
-
-
-  <section id="comments">
-    <div id="ds-thread" class="ds-thread" data-thread-key="2015/08/30/dom/" data-title="DOM2范围" data-url="http://yomtaaa.cn/2015/08/30/dom/"></div>
-  </section>
-</section>
       
-      <aside id="sidebar">
   
-    
-  
-    
-  
-    
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">歸檔</h3>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">August 2015</a><span class="archive-list-count">5</span></li></ul>
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
     </div>
   </div>
 
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">近期文章</h3>
-    <div class="widget">
-      <ul>
-        
-          <li>
-            <a href="/2015/08/31/event/">你了解事件流吗？</a>
-          </li>
-        
-          <li>
-            <a href="/2015/08/30/people/">遇见一些人，然后再与他们告别</a>
-          </li>
-        
-          <li>
-            <a href="/2015/08/30/dom/">DOM2范围</a>
-          </li>
-        
-          <li>
-            <a href="/2015/08/30/Math/">E5中数组的方法</a>
-          </li>
-        
-          <li>
-            <a href="/2015/08/28/transfrom/">Transform</a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
 
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">友情鏈接</h3>
-    <div class="widget">
-      <ul>
-        
-          <li>
-            <a href="feng.moe" target="_blank">Jichun</a>
-          </li>
-        
-          <li>
-            <a href="frankwei.ml" target="_blank">Frank</a>
-          </li>
-        
-          <li>
-            <a href="touko.moe" target="_blank">Touko</a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
-
-  
-</aside>
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目錄
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            本站概覽
+          </li>
+        </ul>
+      
+
+      <section class="site-overview">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" src="/images/default_avatar.jpg" alt="John Doe" itemprop="image"/>
+          <p class="site-author-name" itemprop="name">John Doe</p>
+        </div>
+        <p class="site-description motion-element" itemprop="description"></p>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">5</span>
+              <span class="site-state-item-name">文章</span>
+            </a>
+          </div>
+
+          <div class="site-state-item site-state-categories">
+            
+              <span class="site-state-item-count">0</span>
+              <span class="site-state-item-name">分類</span>
+              
+          </div>
+
+          <div class="site-state-item site-state-tags">
+            <a href="/tags">
+              <span class="site-state-item-count">0</span>
+              <span class="site-state-item-name">標籤</span>
+              </a>
+          </div>
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+      </section>
+
+      
+        <section class="post-toc-wrap sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator"></div>
+          <div class="post-toc">
+            
+            
+              <p class="post-toc-empty">此文章未包含目錄</p>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator"></div>
+        </section>
+      
+
     </div>
-    <footer id="footer">
+  </aside>
+
+
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner"> <div class="copyright" >
   
-  <div class="outer">
-    <div id="footer-info" class="inner">
-      &copy; 2015 John Doe<br>
-      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
-      .
-      Theme by <a href="https://github.com/xiangming/landscape-plus" target="_blank">Landscape-plus</a>
-    </div>
-  </div>
-</footer>
-  </div>
-  <nav id="mobile-nav">
-  
-    <a href="/" class="mobile-nav-link">Home</a>
-  
-    <a href="/archives" class="mobile-nav-link">Archives</a>
-  
-</nav>
-  <!-- totop start -->
-<div id="totop">
-<a title="返回頂部"><img src="/img/scrollup.png"/></a>
+  &copy; &nbsp; 
+  <span itemprop="copyrightYear">2015</span>
+  <span class="with-love">
+    <i class="icon-next-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">John Doe</span>
 </div>
 
-<!-- totop end -->
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 強力驅動
+</div>
 
-<!-- 多说公共js代码 start -->
-<script type="text/javascript">
-var duoshuoQuery = {short_name:"yomtaaa"};
-  (function() {
-    var ds = document.createElement('script');
-    ds.type = 'text/javascript';ds.async = true;
-    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-    ds.charset = 'UTF-8';
-    (document.getElementsByTagName('head')[0]
-     || document.getElementsByTagName('body')[0]).appendChild(ds);
-  })();
+<div class="theme-info">
+  主題 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT
+  </a>
+</div>
+
+
+ </div>
+    </footer>
+
+    <div class="back-to-top"></div>
+  </div>
+
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  
+  
+    
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"yomtaaa"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
   </script>
-<!-- 多说公共js代码 end -->
+    
+     
+
+    
+  
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+  <script type="text/javascript" src="/js/fancy-box.js?v=0.4.5.1"></script>
 
 
-<!-- 百度分享 start -->
+  <script type="text/javascript" src="/js/helpers.js?v=0.4.5.1"></script>
+  
 
-<div id="article-share-box" class="article-share-box">
-  <div id="bdshare" class="bdsharebuttonbox article-share-links">
-    <a class="article-share-weibo" data-cmd="tsina" title="分享到新浪微博"></a>
-    <a class="article-share-weixin" data-cmd="weixin" title="分享到微信"></a>
-    <a class="article-share-qq" data-cmd="sqq" title="分享到QQ"></a>
-    <a class="article-share-renren" data-cmd="renren" title="分享到人人网"></a>
-    <a class="article-share-more" data-cmd="more" title="更多"></a>
-  </div>
-</div>
-<script>
-  function SetShareData(cmd, config) {
-    if (shareDataTitle && shareDataUrl) {
-      config.bdText = shareDataTitle;
-      config.bdUrl = shareDataUrl;
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+  <script type="text/javascript" src="/js/motion_global.js?v=0.4.5.1" id="motion.global"></script>
+
+
+
+
+  <script type="text/javascript" src="/js/nav-toggle.js?v=0.4.5.1"></script>
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  
+<script type="text/javascript" src="/js/bootstrap.scrollspy.js?v=0.4.5.1" id="bootstrap.scrollspy.custom"></script>
+
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
     }
-    return config;
-  }
-  window._bd_share_config={
-    "common":{onBeforeClick: SetShareData},
-    "share":{"bdCustomStyle":"/css/bdshare.css"}
-  };
-  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.motion.complete', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      var $indicator = $(indicator);
+      var opacity = action === 'show' ? 0.4 : 0;
+      $indicator.velocity ?
+        $indicator.velocity('stop').velocity({
+          opacity: opacity
+        }, { duration: 100 }) :
+        $indicator.stop().animate({
+          opacity: opacity
+        }, 100);
+    }
+
+  });
 </script>
 
-<!-- 百度分享 end -->
+<script type="text/javascript" id="sidebar.nav">
+  $(document).ready(function () {
+    var html = $('html');
+    var TAB_ANIMATE_DURATION = 200;
+    var hasVelocity = $.isFunction(html.velocity);
 
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    $('.sidebar-nav li').on('click', function () {
+      var item = $(this);
+      var activeTabClassName = 'sidebar-nav-active';
+      var activePanelClassName = 'sidebar-panel-active';
+      if (item.hasClass(activeTabClassName)) {
+        return;
+      }
+
+      var currentTarget = $('.' + activePanelClassName);
+      var target = $('.' + item.data('target'));
+
+      hasVelocity ?
+        currentTarget.velocity('transition.slideUpOut', TAB_ANIMATE_DURATION, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', TAB_ANIMATE_DURATION)
+            .addClass(activePanelClassName);
+        }) :
+        currentTarget.animate({ opacity: 0 }, TAB_ANIMATE_DURATION, function () {
+          currentTarget.hide();
+          target
+            .stop()
+            .css({'opacity': 0, 'display': 'block'})
+            .animate({ opacity: 1 }, TAB_ANIMATE_DURATION, function () {
+              currentTarget.removeClass(activePanelClassName);
+              target.addClass(activePanelClassName);
+            });
+        });
+
+      item.siblings().removeClass(activeTabClassName);
+      item.addClass(activeTabClassName);
+    });
+
+    $('.post-toc a').on('click', function (e) {
+      e.preventDefault();
+      var targetSelector = escapeSelector(this.getAttribute('href'));
+      var offset = $(targetSelector).offset().top;
+      hasVelocity ?
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        }) :
+        $('html, body').stop().animate({
+          scrollTop: offset
+        }, 500);
+    });
+
+    // Expand sidebar on post detail page by default, when post has a toc.
+    var $tocContent = $('.post-toc-content');
+    if (isDesktop() && CONFIG.sidebar === 'post') {
+      if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
+        displaySidebar();
+      }
+    }
+  });
+</script>
 
 
 
+  <script type="text/javascript">
+    $(document).ready(function () {
+      if (CONFIG.sidebar === 'always') {
+        displaySidebar();
+      }
+      if (isMobile()) {
+        FastClick.attach(document.body);
+      }
+    });
+  </script>
 
-<script src="/js/script.js" type="text/javascript"></script>
+  
 
-</div>
+  
+  
+
+  
+  <script type="text/javascript" src="/js/lazyload.js"></script>
+  <script type="text/javascript">
+    $(function () {
+      $("#posts").find('img').lazyload({
+        placeholder: "/images/loading.gif",
+        effect: "fadeIn"
+      });
+    });
+  </script>
 </body>
 </html>

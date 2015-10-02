@@ -1,12 +1,45 @@
-
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html class="theme-next use-motion ">
 <head>
-  <meta charset="utf-8">
   
-  <title>你了解事件流吗？ | Daily life</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="事件冒泡：即由文档中嵌套层次最深的元素接收，逐级向上传播(FF、chrome、opera、safari以及ie9以上都会一直传播至window，而ie9以下的则只冒泡到html)。事件捕获：即由不太具体的元素最先接收事件，而最具体的元素安排在最后，逐级向下传播。事件流的3个阶段：事件捕获阶段、目标阶段、事件冒泡阶段，虽然规定由document最先接收，但实际上都从window开始。在addEven">
+
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+  <link rel="stylesheet" type="text/css" href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5"/>
+
+
+
+  <link href='//fonts.googleapis.com/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+
+
+<link rel="stylesheet" type="text/css" href="/css/main.css?v=0.4.5.1"/>
+
+
+
+
+  <meta name="keywords" content="Hexo,next" />
+
+
+
+
+
+  <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.1" />
+
+
+<meta name="description" content="事件冒泡：即由文档中嵌套层次最深的元素接收，逐级向上传播(FF、chrome、opera、safari以及ie9以上都会一直传播至window，而ie9以下的则只冒泡到html)。事件捕获：即由不太具体的元素最先接收事件，而最具体的元素安排在最后，逐级向下传播。事件流的3个阶段：事件捕获阶段、目标阶段、事件冒泡阶段，虽然规定由document最先接收，但实际上都从window开始。在addEven">
 <meta property="og:type" content="article">
 <meta property="og:title" content="你了解事件流吗？">
 <meta property="og:url" content="http://yomtaaa.cn/2015/08/31/event/index.html">
@@ -17,271 +50,551 @@
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="你了解事件流吗？">
 <meta name="twitter:description" content="事件冒泡：即由文档中嵌套层次最深的元素接收，逐级向上传播(FF、chrome、opera、safari以及ie9以上都会一直传播至window，而ie9以下的则只冒泡到html)。事件捕获：即由不太具体的元素最先接收事件，而最具体的元素安排在最后，逐级向下传播。事件流的3个阶段：事件捕获阶段、目标阶段、事件冒泡阶段，虽然规定由document最先接收，但实际上都从window开始。在addEven">
-  
-    <link rel="alternative" href="/atom.xml" title="Daily life" type="application/atom+xml">
-  
-  
-    <link rel="icon" href="/favicon.png">
-  
-  <link rel="stylesheet" href="/css/style.css" type="text/css">
-  <link href="//fonts.useso.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
-  <!--[if lt IE 9]><script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7/html5shiv.min.js"></script><![endif]-->
-  
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var CONFIG = {
+    scheme: '',
+    sidebar: 'post'
+  };
+</script>
+
+  <title> 你了解事件流吗？ | Daily life </title>
 </head>
-<body>
-<div id="container">
-  <div id="wrap">
-    <header id="header">
-  <div id="banner"></div>
-  <div id="header-outer" class="outer">
-    <div id="header-title" class="inner">
-      <h1 id="logo-wrap">
-        <a href="/" id="logo">Daily life</a>
-      </h1>
-      
-    </div>
-    <div id="header-inner" class="inner">
-      <nav id="main-nav">
-        <a id="main-nav-toggle" class="nav-icon"></a>
-        
-          <a class="main-nav-link" href="/">Home</a>
-        
-          <a class="main-nav-link" href="/archives">Archives</a>
-        
-      </nav>
-      <nav id="sub-nav">
-        
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
-        
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
-      </nav>
-      <div id="search-form-wrap">
-        <form action="http://www.baidu.com/baidu" method="get" accept-charset="utf-8" class="search-form">
-          <input type="search" name="word" maxlength="20" class="search-form-input" placeholder="Search">
-          <input type="submit" value="" class="search-form-submit">
-          <input name=tn type=hidden value="bds">
-          <input name=cl type=hidden value="3">
-          <input name=ct type=hidden value="2097152">
-          <input type="hidden" name="si" value="yomtaaa.cn">
-        </form>
-      </div>
-    </div>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="">
+
+  <!--[if lte IE 8]>
+  <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'>
+    <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
+      <img src="http://7u2nvr.com1.z0.glb.clouddn.com/picouterie.jpg" border="0" height="42" width="820"
+           alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today or use other browser ,like chrome firefox safari."
+           style='margin-left:auto;margin-right:auto;display: block;'/>
+    </a>
   </div>
-</header>
-    <div class="outer">
-      <section id="main"><article id="post-event" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2015/08/31/event/" class="article-date">
-  <time datetime="2015-08-31T03:32:10.000Z" itemprop="datePublished">2015-08-31</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="article-title" itemprop="name">
-      你了解事件流吗？
-    </h1>
+<![endif]-->
   
 
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
+
+
+  <div class="container one-column page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><h1 class="site-meta">
+  <span class="logo-line-before"><i></i></span>
+  <a href="/" class="brand" rel="start">
+      <span class="logo">
+        <i class="icon-next-logo"></i>
+      </span>
+      <span class="site-title">Daily life</span>
+  </a>
+  <span class="logo-line-after"><i></i></span>
+</h1>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu ">
       
-        <p><strong>事件冒泡</strong>：即由文档中嵌套层次最深的元素接收，逐级向上传播(FF、chrome、opera、safari以及ie9以上都会一直传播至window，而ie9以下的则只冒泡到html)。<br><strong>事件捕获</strong>：即由不太具体的元素最先接收事件，而最具体的元素安排在最后，逐级向下传播。<br><strong>事件流的3个阶段</strong>：事件捕获阶段、目标阶段、事件冒泡阶段，虽然规定由document最先接收，但实际上都从window开始。在addEventListener中的this始终指的都是调用他的元素。attachEvent事件处理程序中调用的this始终指向window。<br>addEventListener把第三个参数设置为true，让他在事件捕获阶段触发事件处理程序，相反的，如果为false则在事件冒泡阶段触发，从而达到和事件冒泡一致的效果。<br>为了兼容IE提供了attachEvent()，这个方法只针对IE，因为IE8没有事件流，所以用这个方法添加的事件处理程序都被添加到冒泡阶段。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">oDiv1.addEventListener(<span class="string">'click'</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">'父元素冒泡'</span>);</span><br><span class="line">&#125;,<span class="literal">false</span>);</span><br><span class="line">oDiv1.addEventListener(<span class="string">'click'</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">'父元素捕获'</span>);</span><br><span class="line">&#125;,<span class="literal">true</span>);</span><br><span class="line">oDiv2.addEventListener(<span class="string">'click'</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">'子元素捕获'</span>);</span><br><span class="line">&#125;,<span class="literal">true</span>);</span><br><span class="line">oDiv2.addEventListener(<span class="string">'click'</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">'子元素冒泡'</span>);</span><br><span class="line">&#125;,<span class="literal">false</span>);</span><br><span class="line">oDiv3.addEventListener(<span class="string">'click'</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">'孙元素捕获'</span>);</span><br><span class="line">&#125;,<span class="literal">true</span>);</span><br><span class="line">oDiv3.addEventListener(<span class="string">'click'</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">'孙元素冒泡'</span>);</span><br><span class="line">&#125;,<span class="literal">false</span>);</span><br></pre></td></tr></table></figure></p>
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            <i class="menu-item-icon icon-next-home"></i> <br />
+            首頁
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            <i class="menu-item-icon icon-next-archives"></i> <br />
+            歸檔
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            <i class="menu-item-icon icon-next-tags"></i> <br />
+            標籤
+          </a>
+        </li>
+      
+
+      
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div id="content" class="content"> 
+
+  <div id="posts" class="posts-expand">
+    
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      
+      
+        <h1 class="post-title" itemprop="name headline">
+          
+          
+            
+              你了解事件流吗？
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          發表於
+          <time itemprop="dateCreated" datetime="2015-08-31T11:32:10+08:00" content="2015-08-31">
+            2015-08-31
+          </time>
+        </span>
+
+        
+
+        
+          
+            <span class="post-comments-count">
+              &nbsp; | &nbsp;
+              <a href="/2015/08/31/event/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2015/08/31/event/" itemprop="commentsCount"></span>
+              </a>
+            </span>
+          
+        
+      </div>
+    </header>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        <span itemprop="articleBody"><p><strong>事件冒泡</strong>：即由文档中嵌套层次最深的元素接收，逐级向上传播(FF、chrome、opera、safari以及ie9以上都会一直传播至window，而ie9以下的则只冒泡到html)。<br><strong>事件捕获</strong>：即由不太具体的元素最先接收事件，而最具体的元素安排在最后，逐级向下传播。<br><strong>事件流的3个阶段</strong>：事件捕获阶段、目标阶段、事件冒泡阶段，虽然规定由document最先接收，但实际上都从window开始。在addEventListener中的this始终指的都是调用他的元素。attachEvent事件处理程序中调用的this始终指向window。<br>addEventListener把第三个参数设置为true，让他在事件捕获阶段触发事件处理程序，相反的，如果为false则在事件冒泡阶段触发，从而达到和事件冒泡一致的效果。<br>为了兼容IE提供了attachEvent()，这个方法只针对IE，因为IE8没有事件流，所以用这个方法添加的事件处理程序都被添加到冒泡阶段。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">oDiv1.addEventListener(<span class="string">'click'</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">'父元素冒泡'</span>);</span><br><span class="line">&#125;,<span class="literal">false</span>);</span><br><span class="line">oDiv1.addEventListener(<span class="string">'click'</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">'父元素捕获'</span>);</span><br><span class="line">&#125;,<span class="literal">true</span>);</span><br><span class="line">oDiv2.addEventListener(<span class="string">'click'</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">'子元素捕获'</span>);</span><br><span class="line">&#125;,<span class="literal">true</span>);</span><br><span class="line">oDiv2.addEventListener(<span class="string">'click'</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">'子元素冒泡'</span>);</span><br><span class="line">&#125;,<span class="literal">false</span>);</span><br><span class="line">oDiv3.addEventListener(<span class="string">'click'</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">'孙元素捕获'</span>);</span><br><span class="line">&#125;,<span class="literal">true</span>);</span><br><span class="line">oDiv3.addEventListener(<span class="string">'click'</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">'孙元素冒泡'</span>);</span><br><span class="line">&#125;,<span class="literal">false</span>);</span><br></pre></td></tr></table></figure></p>
 <p><img src="../image/event.png"><br>下面是控制台的输出，一切都显得那么自然。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">父元素捕获</span><br><span class="line">子元素捕获</span><br><span class="line">孙元素捕获</span><br><span class="line">孙元素冒泡</span><br><span class="line">子元素冒泡</span><br><span class="line">父元素冒泡</span><br></pre></td></tr></table></figure></p>
 <p>当我们把孙元素的事件处理程序交换位置后….<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">oDiv3.addEventListener(<span class="string">'click'</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">'孙元素冒泡'</span>);</span><br><span class="line">&#125;,<span class="literal">false</span>);</span><br><span class="line">oDiv3.addEventListener(<span class="string">'click'</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">'孙元素捕获'</span>);</span><br><span class="line">&#125;,<span class="literal">true</span>);</span><br></pre></td></tr></table></figure></p>
 <p>控制台的输出如下<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">父元素捕获</span><br><span class="line">子元素捕获</span><br><span class="line">孙元素冒泡</span><br><span class="line">孙元素捕获</span><br><span class="line">子元素冒泡</span><br><span class="line">父元素冒泡</span><br></pre></td></tr></table></figure></p>
 <p>如果你给代码最深处再嵌套一个div，你会发现冒泡和捕获位置错乱总是出现在最深一层。<br>还记得事件流包括3个阶段吗？事件捕获阶段、目标阶段、事件冒泡阶段。<br>点击孙元素时处于目标阶段然后是冒泡，冒泡之后才触发捕获（这跟事件顺序有关），接着再往上冒，这一点可以用event的eventPhase属性去验证。</p>
-
+</span>
       
     </div>
-    <footer class="article-footer">
-      
-        <a data-url="http://yomtaaa.cn/2015/08/31/event/" data-id="cif80l5a60007hcqi6jfpl16o" class="article-share-link" data-share="baidu" data-title="你了解事件流吗？">分享到</a>
+
+    <footer class="post-footer">
       
 
       
-        <a href="http://yomtaaa.cn/2015/08/31/event/#ds-thread" class="article-comment-link">評論</a>
+        <div class="post-nav">
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/08/30/people/" rel="next">遇见一些人，然后再与他们告别</a>
+            
+          </div>
+        </div>
       
 
+      
       
     </footer>
-  </div>
-  
-    
-<nav id="article-nav">
-  
-  
-    <a href="/2015/08/30/people/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">上一篇</strong>
-      <div class="article-nav-title">遇见一些人，然后再与他们告别</div>
-    </a>
-  
-</nav>
-
-  
-</article>
+  </article>
 
 
-  <section id="comments">
-    <div id="ds-thread" class="ds-thread" data-thread-key="2015/08/31/event/" data-title="你了解事件流吗？" data-url="http://yomtaaa.cn/2015/08/31/event/"></div>
-  </section>
-</section>
-      
-      <aside id="sidebar">
-  
-    
-  
-    
-  
-    
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">歸檔</h3>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">August 2015</a><span class="archive-list-count">5</span></li></ul>
-    </div>
-  </div>
 
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">近期文章</h3>
-    <div class="widget">
-      <ul>
-        
-          <li>
-            <a href="/2015/08/31/event/">你了解事件流吗？</a>
-          </li>
-        
-          <li>
-            <a href="/2015/08/30/people/">遇见一些人，然后再与他们告别</a>
-          </li>
-        
-          <li>
-            <a href="/2015/08/30/dom/">DOM2范围</a>
-          </li>
-        
-          <li>
-            <a href="/2015/08/30/Math/">E5中数组的方法</a>
-          </li>
-        
-          <li>
-            <a href="/2015/08/28/transfrom/">Transform</a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">友情鏈接</h3>
-    <div class="widget">
-      <ul>
-        
-          <li>
-            <a href="feng.moe" target="_blank">Jichun</a>
-          </li>
-        
-          <li>
-            <a href="frankwei.ml" target="_blank">Frank</a>
-          </li>
-        
-          <li>
-            <a href="touko.moe" target="_blank">Touko</a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
-
-  
-</aside>
+    <div class="post-spread">
       
     </div>
-    <footer id="footer">
+  </div>
+
+ </div>
+
+        
+
+        
+          <div class="comments" id="comments">
+            
+              <div class="ds-thread" data-thread-key="2015/08/31/event/"
+                   data-title="你了解事件流吗？" data-url="http://yomtaaa.cn/2015/08/31/event/">
+              </div>
+            
+          </div>
+        
+      </div>
+
+      
   
-  <div class="outer">
-    <div id="footer-info" class="inner">
-      &copy; 2015 John Doe<br>
-      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
-      .
-      Theme by <a href="https://github.com/xiangming/landscape-plus" target="_blank">Landscape-plus</a>
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
     </div>
   </div>
-</footer>
-  </div>
-  <nav id="mobile-nav">
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目錄
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            本站概覽
+          </li>
+        </ul>
+      
+
+      <section class="site-overview">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" src="/images/default_avatar.jpg" alt="John Doe" itemprop="image"/>
+          <p class="site-author-name" itemprop="name">John Doe</p>
+        </div>
+        <p class="site-description motion-element" itemprop="description"></p>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">5</span>
+              <span class="site-state-item-name">文章</span>
+            </a>
+          </div>
+
+          <div class="site-state-item site-state-categories">
+            
+              <span class="site-state-item-count">0</span>
+              <span class="site-state-item-name">分類</span>
+              
+          </div>
+
+          <div class="site-state-item site-state-tags">
+            <a href="/tags">
+              <span class="site-state-item-count">0</span>
+              <span class="site-state-item-name">標籤</span>
+              </a>
+          </div>
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+      </section>
+
+      
+        <section class="post-toc-wrap sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator"></div>
+          <div class="post-toc">
+            
+            
+              <p class="post-toc-empty">此文章未包含目錄</p>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator"></div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner"> <div class="copyright" >
   
-    <a href="/" class="mobile-nav-link">Home</a>
-  
-    <a href="/archives" class="mobile-nav-link">Archives</a>
-  
-</nav>
-  <!-- totop start -->
-<div id="totop">
-<a title="返回頂部"><img src="/img/scrollup.png"/></a>
+  &copy; &nbsp; 
+  <span itemprop="copyrightYear">2015</span>
+  <span class="with-love">
+    <i class="icon-next-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">John Doe</span>
 </div>
 
-<!-- totop end -->
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 強力驅動
+</div>
 
-<!-- 多说公共js代码 start -->
-<script type="text/javascript">
-var duoshuoQuery = {short_name:"yomtaaa"};
-  (function() {
-    var ds = document.createElement('script');
-    ds.type = 'text/javascript';ds.async = true;
-    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-    ds.charset = 'UTF-8';
-    (document.getElementsByTagName('head')[0]
-     || document.getElementsByTagName('body')[0]).appendChild(ds);
-  })();
+<div class="theme-info">
+  主題 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT
+  </a>
+</div>
+
+
+ </div>
+    </footer>
+
+    <div class="back-to-top"></div>
+  </div>
+
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  
+  
+    
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"yomtaaa"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
   </script>
-<!-- 多说公共js代码 end -->
+    
+     
+
+    
+  
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+  <script type="text/javascript" src="/js/fancy-box.js?v=0.4.5.1"></script>
 
 
-<!-- 百度分享 start -->
+  <script type="text/javascript" src="/js/helpers.js?v=0.4.5.1"></script>
+  
 
-<div id="article-share-box" class="article-share-box">
-  <div id="bdshare" class="bdsharebuttonbox article-share-links">
-    <a class="article-share-weibo" data-cmd="tsina" title="分享到新浪微博"></a>
-    <a class="article-share-weixin" data-cmd="weixin" title="分享到微信"></a>
-    <a class="article-share-qq" data-cmd="sqq" title="分享到QQ"></a>
-    <a class="article-share-renren" data-cmd="renren" title="分享到人人网"></a>
-    <a class="article-share-more" data-cmd="more" title="更多"></a>
-  </div>
-</div>
-<script>
-  function SetShareData(cmd, config) {
-    if (shareDataTitle && shareDataUrl) {
-      config.bdText = shareDataTitle;
-      config.bdUrl = shareDataUrl;
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+  <script type="text/javascript" src="/js/motion_global.js?v=0.4.5.1" id="motion.global"></script>
+
+
+
+
+  <script type="text/javascript" src="/js/nav-toggle.js?v=0.4.5.1"></script>
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  
+<script type="text/javascript" src="/js/bootstrap.scrollspy.js?v=0.4.5.1" id="bootstrap.scrollspy.custom"></script>
+
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
     }
-    return config;
-  }
-  window._bd_share_config={
-    "common":{onBeforeClick: SetShareData},
-    "share":{"bdCustomStyle":"/css/bdshare.css"}
-  };
-  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.motion.complete', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      var $indicator = $(indicator);
+      var opacity = action === 'show' ? 0.4 : 0;
+      $indicator.velocity ?
+        $indicator.velocity('stop').velocity({
+          opacity: opacity
+        }, { duration: 100 }) :
+        $indicator.stop().animate({
+          opacity: opacity
+        }, 100);
+    }
+
+  });
 </script>
 
-<!-- 百度分享 end -->
+<script type="text/javascript" id="sidebar.nav">
+  $(document).ready(function () {
+    var html = $('html');
+    var TAB_ANIMATE_DURATION = 200;
+    var hasVelocity = $.isFunction(html.velocity);
 
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    $('.sidebar-nav li').on('click', function () {
+      var item = $(this);
+      var activeTabClassName = 'sidebar-nav-active';
+      var activePanelClassName = 'sidebar-panel-active';
+      if (item.hasClass(activeTabClassName)) {
+        return;
+      }
+
+      var currentTarget = $('.' + activePanelClassName);
+      var target = $('.' + item.data('target'));
+
+      hasVelocity ?
+        currentTarget.velocity('transition.slideUpOut', TAB_ANIMATE_DURATION, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', TAB_ANIMATE_DURATION)
+            .addClass(activePanelClassName);
+        }) :
+        currentTarget.animate({ opacity: 0 }, TAB_ANIMATE_DURATION, function () {
+          currentTarget.hide();
+          target
+            .stop()
+            .css({'opacity': 0, 'display': 'block'})
+            .animate({ opacity: 1 }, TAB_ANIMATE_DURATION, function () {
+              currentTarget.removeClass(activePanelClassName);
+              target.addClass(activePanelClassName);
+            });
+        });
+
+      item.siblings().removeClass(activeTabClassName);
+      item.addClass(activeTabClassName);
+    });
+
+    $('.post-toc a').on('click', function (e) {
+      e.preventDefault();
+      var targetSelector = escapeSelector(this.getAttribute('href'));
+      var offset = $(targetSelector).offset().top;
+      hasVelocity ?
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        }) :
+        $('html, body').stop().animate({
+          scrollTop: offset
+        }, 500);
+    });
+
+    // Expand sidebar on post detail page by default, when post has a toc.
+    var $tocContent = $('.post-toc-content');
+    if (isDesktop() && CONFIG.sidebar === 'post') {
+      if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
+        displaySidebar();
+      }
+    }
+  });
+</script>
 
 
 
+  <script type="text/javascript">
+    $(document).ready(function () {
+      if (CONFIG.sidebar === 'always') {
+        displaySidebar();
+      }
+      if (isMobile()) {
+        FastClick.attach(document.body);
+      }
+    });
+  </script>
 
-<script src="/js/script.js" type="text/javascript"></script>
+  
 
-</div>
+  
+  
+
+  
+  <script type="text/javascript" src="/js/lazyload.js"></script>
+  <script type="text/javascript">
+    $(function () {
+      $("#posts").find('img').lazyload({
+        placeholder: "/images/loading.gif",
+        effect: "fadeIn"
+      });
+    });
+  </script>
 </body>
 </html>
