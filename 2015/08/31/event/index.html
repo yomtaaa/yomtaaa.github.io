@@ -30,7 +30,7 @@
 
 
 
-  <meta name="keywords" content="CSS3," />
+  <meta name="keywords" content="javascript," />
 
 
 
@@ -39,22 +39,17 @@
   <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.1" />
 
 
-<meta name="description" content="transform是css3新增加的， 能够对元素进行移动、缩放、转动、拉长或拉伸，首先我们来说说rotate()。①rotate()是2D的转换方法，他接收一个参数，deg（度），可以传入任意度数，默认是顺时针旋转，传入负数则是逆时针旋转。transform的旋转是根据中心点进行旋转的，这一点可以用transform-origin来改变。注意，无论你如何旋转offsetWidth、offsetH">
+<meta name="description" content="事件冒泡：即由文档中嵌套层次最深的元素接收，逐级向上传播(FF、chrome、opera、safari以及ie9以上都会一直传播至window，而ie9以下的则只冒泡到html)。事件捕获：即由不太具体的元素最先接收事件，而最具体的元素安排在最后，逐级向下传播。事件流的3个阶段：事件捕获阶段、目标阶段、事件冒泡阶段，虽然规定由document最先接收，但实际上都从window开始。在addEven">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Transform">
-<meta property="og:url" content="http://yomtaaa.cn/2015/08/28/transfrom/index.html">
+<meta property="og:title" content="你了解事件流吗？">
+<meta property="og:url" content="http://yomtaaa.cn/2015/08/31/event/index.html">
 <meta property="og:site_name" content="Daily life">
-<meta property="og:description" content="transform是css3新增加的， 能够对元素进行移动、缩放、转动、拉长或拉伸，首先我们来说说rotate()。①rotate()是2D的转换方法，他接收一个参数，deg（度），可以传入任意度数，默认是顺时针旋转，传入负数则是逆时针旋转。transform的旋转是根据中心点进行旋转的，这一点可以用transform-origin来改变。注意，无论你如何旋转offsetWidth、offsetH">
-<meta property="og:image" content="http://yomtaaa.cn/../image/photo1.png">
-<meta property="og:image" content="http://yomtaaa.cn/../image/photo2.png">
-<meta property="og:image" content="http://yomtaaa.cn/../image/photo3.png">
-<meta property="og:image" content="http://yomtaaa.cn/../image/photo4.png">
-<meta property="og:image" content="http://yomtaaa.cn/../image/photo5.png">
-<meta property="og:image" content="http://yomtaaa.cn/../image/photo6.png">
-<meta property="og:updated_time" content="2015-10-04T05:58:03.286Z">
+<meta property="og:description" content="事件冒泡：即由文档中嵌套层次最深的元素接收，逐级向上传播(FF、chrome、opera、safari以及ie9以上都会一直传播至window，而ie9以下的则只冒泡到html)。事件捕获：即由不太具体的元素最先接收事件，而最具体的元素安排在最后，逐级向下传播。事件流的3个阶段：事件捕获阶段、目标阶段、事件冒泡阶段，虽然规定由document最先接收，但实际上都从window开始。在addEven">
+<meta property="og:image" content="http://yomtaaa.cn/../image/event.png">
+<meta property="og:updated_time" content="2015-10-04T05:56:01.334Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Transform">
-<meta name="twitter:description" content="transform是css3新增加的， 能够对元素进行移动、缩放、转动、拉长或拉伸，首先我们来说说rotate()。①rotate()是2D的转换方法，他接收一个参数，deg（度），可以传入任意度数，默认是顺时针旋转，传入负数则是逆时针旋转。transform的旋转是根据中心点进行旋转的，这一点可以用transform-origin来改变。注意，无论你如何旋转offsetWidth、offsetH">
+<meta name="twitter:title" content="你了解事件流吗？">
+<meta name="twitter:description" content="事件冒泡：即由文档中嵌套层次最深的元素接收，逐级向上传播(FF、chrome、opera、safari以及ie9以上都会一直传播至window，而ie9以下的则只冒泡到html)。事件捕获：即由不太具体的元素最先接收事件，而最具体的元素安排在最后，逐级向下传播。事件流的3个阶段：事件捕获阶段、目标阶段、事件冒泡阶段，虽然规定由document最先接收，但实际上都从window开始。在addEven">
 
 
 <script type="text/javascript" id="hexo.configuration">
@@ -64,7 +59,7 @@
   };
 </script>
 
-  <title> Transform | Daily life </title>
+  <title> 你了解事件流吗？ | Daily life </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="">
@@ -179,7 +174,7 @@
           
           
             
-              Transform
+              你了解事件流吗？
             
           
         </h1>
@@ -188,8 +183,8 @@
       <div class="post-meta">
         <span class="post-time">
           發表於
-          <time itemprop="dateCreated" datetime="2015-08-28T22:57:50+08:00" content="2015-08-28">
-            2015-08-28
+          <time itemprop="dateCreated" datetime="2015-08-31T11:32:10+08:00" content="2015-08-31">
+            2015-08-31
           </time>
         </span>
 
@@ -199,8 +194,8 @@
           
             <span class="post-comments-count">
               &nbsp; | &nbsp;
-              <a href="/2015/08/28/transfrom/#comments" itemprop="discussionUrl">
-                <span class="post-comments-count ds-thread-count" data-thread-key="2015/08/28/transfrom/" itemprop="commentsCount"></span>
+              <a href="/2015/08/31/event/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2015/08/31/event/" itemprop="commentsCount"></span>
               </a>
             </span>
           
@@ -214,12 +209,11 @@
       
 
       
-        <span itemprop="articleBody"><p><strong>transform是css3新增加的， 能够对元素进行移动、缩放、转动、拉长或拉伸，首先我们来说说rotate()。</strong><br><strong>①rotate()</strong>是2D的转换方法，他接收一个参数，deg（度），可以传入任意度数，默认是顺时针旋转，传入负数则是逆时针旋转。<br><img src="../image/photo1.png" width="200px">transform的旋转是根据中心点进行旋转的，这一点可以用transform-origin来改变。注意，无论你如何旋转offsetWidth、offsetHeight、offsetLeft、offsetTop始终不变，始终是默认不旋转时的值。<br><strong>②移动的translate()</strong></p>
-<ul>
-<li>我们可以把他划分为三种情况：translate(x,y)     =&gt;     水平垂直两个方向同时移动<pre><code><span class="function"><span class="title">translateX</span><span class="params">(x)</span></span>      =&gt;     他只有一个参数，即水平移动
-<span class="function"><span class="title">translateY</span><span class="params">(y)</span></span>      =&gt;     他只有一个参数，即垂直移动
-</code></pre>应该有部分的人会认为这和定位差不多，都是用来控制元素位置的，但是实际上他和定位相比有很大的出入，有积极的影响也有消极的影响。<br>translate()的计算是相对于父元素，除非脱离普通流。<br><img src="../image/photo2.png"><br>设置了transform:translate(10px,0px)让他往左便宜10像素，再来看看下面的代码。<br><img src="../image/photo3.png"><br>之后给他加了绝对定位，意料之中，他脱离文本流，但是他的left值会在translate的基础上再偏移10像素。<br>他可能相对于定位来说会比较灵活，但是之后我又取消了绝对定位，给他加了一段js，局限性就显而易见了。<br>translate的偏移量没有算在offsetLeft里，既然没有算在offsetLeft里，那会对我们的操作有一定的影响。<br><strong>③scale()放大缩小</strong>，默认，宽度以中心点向左右两边扩大或缩小，高度则向上下两边扩大或缩小。<br><img src="../image/photo4.png"><br>可以看到在扩大缩小时一般会覆盖其他元素。注意，无论你如何扩大或缩小offsetWidth、offsetHeight、offsetLeft、offsetTop始终不变，始终是默认不变时的值。。<br><strong>④skew()翻转</strong><br>transform:skew(30deg,30deg);表面上看这个方法挺好理解，也就是沿着x轴与y轴各旋转30度，但是后来显示的图形又让我很不理解。<br><img src="../image/photo5.png"><br>这还看不出什么，如果改为60deg+就很离谱了，之所以会产生变形的，这是因为我给元素限定的高度是固定的，所以他都会保持着固定的高度，同时为了保持倾斜，只能拉长本身。<br><img src="../image/photo6.png"><br>这是skewY(),因为给了固定宽度，所以只能垂直拉伸，宽度固定。</li>
-</ul>
+        <span itemprop="articleBody"><p><strong>事件冒泡</strong>：即由文档中嵌套层次最深的元素接收，逐级向上传播(FF、chrome、opera、safari以及ie9以上都会一直传播至window，而ie9以下的则只冒泡到html)。<br><strong>事件捕获</strong>：即由不太具体的元素最先接收事件，而最具体的元素安排在最后，逐级向下传播。<br><strong>事件流的3个阶段</strong>：事件捕获阶段、目标阶段、事件冒泡阶段，虽然规定由document最先接收，但实际上都从window开始。在addEventListener中的this始终指的都是调用他的元素。attachEvent事件处理程序中调用的this始终指向window。<br>addEventListener把第三个参数设置为true，让他在事件捕获阶段触发事件处理程序，相反的，如果为false则在事件冒泡阶段触发，从而达到和事件冒泡一致的效果。<br>为了兼容IE提供了attachEvent()，这个方法只针对IE，因为IE8没有事件流，所以用这个方法添加的事件处理程序都被添加到冒泡阶段。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">oDiv1.addEventListener(<span class="string">'click'</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">'父元素冒泡'</span>);</span><br><span class="line">&#125;,<span class="literal">false</span>);</span><br><span class="line">oDiv1.addEventListener(<span class="string">'click'</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">'父元素捕获'</span>);</span><br><span class="line">&#125;,<span class="literal">true</span>);</span><br><span class="line">oDiv2.addEventListener(<span class="string">'click'</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">'子元素捕获'</span>);</span><br><span class="line">&#125;,<span class="literal">true</span>);</span><br><span class="line">oDiv2.addEventListener(<span class="string">'click'</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">'子元素冒泡'</span>);</span><br><span class="line">&#125;,<span class="literal">false</span>);</span><br><span class="line">oDiv3.addEventListener(<span class="string">'click'</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">'孙元素捕获'</span>);</span><br><span class="line">&#125;,<span class="literal">true</span>);</span><br><span class="line">oDiv3.addEventListener(<span class="string">'click'</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">'孙元素冒泡'</span>);</span><br><span class="line">&#125;,<span class="literal">false</span>);</span><br></pre></td></tr></table></figure></p>
+<p><img src="../image/event.png"><br>下面是控制台的输出，一切都显得那么自然。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">父元素捕获</span><br><span class="line">子元素捕获</span><br><span class="line">孙元素捕获</span><br><span class="line">孙元素冒泡</span><br><span class="line">子元素冒泡</span><br><span class="line">父元素冒泡</span><br></pre></td></tr></table></figure></p>
+<p>当我们把孙元素的事件处理程序交换位置后….<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">oDiv3.addEventListener(<span class="string">'click'</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">'孙元素冒泡'</span>);</span><br><span class="line">&#125;,<span class="literal">false</span>);</span><br><span class="line">oDiv3.addEventListener(<span class="string">'click'</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">'孙元素捕获'</span>);</span><br><span class="line">&#125;,<span class="literal">true</span>);</span><br></pre></td></tr></table></figure></p>
+<p>控制台的输出如下<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">父元素捕获</span><br><span class="line">子元素捕获</span><br><span class="line">孙元素冒泡</span><br><span class="line">孙元素捕获</span><br><span class="line">子元素冒泡</span><br><span class="line">父元素冒泡</span><br></pre></td></tr></table></figure></p>
+<p>如果你给代码最深处再嵌套一个div，你会发现冒泡和捕获位置错乱总是出现在最深一层。<br>还记得事件流包括3个阶段吗？事件捕获阶段、目标阶段、事件冒泡阶段。<br>点击孙元素时处于目标阶段然后是冒泡，冒泡之后才触发捕获（这跟事件顺序有关），接着再往上冒，这一点可以用event的eventPhase属性去验证。</p>
 </span>
       
     </div>
@@ -228,7 +222,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/CSS3/" rel="tag">#CSS3</a>
+            <a href="/tags/javascript/" rel="tag">#javascript</a>
           
         </div>
       
@@ -237,11 +231,13 @@
         <div class="post-nav">
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2015/08/30/Math/" rel="prev">E5中数组的方法</a>
+              <a href="/2015/10/04/javascript/" rel="prev">javascript设计模式的总结</a>
             
           </div>
 
           <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/08/30/people/" rel="next">遇见一些人，然后再与他们告别</a>
             
           </div>
         </div>
@@ -266,8 +262,8 @@
         
           <div class="comments" id="comments">
             
-              <div class="ds-thread" data-thread-key="2015/08/28/transfrom/"
-                   data-title="Transform" data-url="http://yomtaaa.cn/2015/08/28/transfrom/">
+              <div class="ds-thread" data-thread-key="2015/08/31/event/"
+                   data-title="你了解事件流吗？" data-url="http://yomtaaa.cn/2015/08/31/event/">
               </div>
             
           </div>

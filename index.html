@@ -261,6 +261,79 @@
           
           
             
+              <a class="post-title-link" href="/2015/08/31/event/" itemprop="url">
+                你了解事件流吗？
+              </a>
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          發表於
+          <time itemprop="dateCreated" datetime="2015-08-31T11:32:10+08:00" content="2015-08-31">
+            2015-08-31
+          </time>
+        </span>
+
+        
+
+        
+          
+            <span class="post-comments-count">
+              &nbsp; | &nbsp;
+              <a href="/2015/08/31/event/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2015/08/31/event/" itemprop="commentsCount"></span>
+              </a>
+            </span>
+          
+        
+      </div>
+    </header>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <span itemprop="articleBody"><p><strong>事件冒泡</strong>：即由文档中嵌套层次最深的元素接收，逐级向上传播(FF、chrome、opera、safari以及ie9以上都会一直传播至window，而ie9以下的则只冒泡到html)。<br><strong>事件捕获</strong>：即由不太具体的元素最先接收事件，而最具体的元素安排在最后，逐级向下传播。<br><strong>事件流的3个阶段</strong>：事件捕获阶段、目标阶段、事件冒泡阶段，虽然规定由document最先接收，但实际上都从window开始。在addEventListener中的this始终指的都是调用他的元素。attachEvent事件处理程序中调用的this始终指向window。<br>addEventListener把第三个参数设置为true，让他在事件捕获阶段触发事件处理程序，相反的，如果为false则在事件冒泡阶段触发，从而达到和事件冒泡一致的效果。<br>为了兼容IE提供了attachEvent()，这个方法只针对IE，因为IE8没有事件流，所以用这个方法添加的事件处理程序都被添加到冒泡阶段。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">oDiv1.addEventListener(<span class="string">'click'</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">'父元素冒泡'</span>);</span><br><span class="line">&#125;,<span class="literal">false</span>);</span><br><span class="line">oDiv1.addEventListener(<span class="string">'click'</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">'父元素捕获'</span>);</span><br><span class="line">&#125;,<span class="literal">true</span>);</span><br><span class="line">oDiv2.addEventListener(<span class="string">'click'</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">'子元素捕获'</span>);</span><br><span class="line">&#125;,<span class="literal">true</span>);</span><br><span class="line">oDiv2.addEventListener(<span class="string">'click'</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">'子元素冒泡'</span>);</span><br><span class="line">&#125;,<span class="literal">false</span>);</span><br><span class="line">oDiv3.addEventListener(<span class="string">'click'</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">'孙元素捕获'</span>);</span><br><span class="line">&#125;,<span class="literal">true</span>);</span><br><span class="line">oDiv3.addEventListener(<span class="string">'click'</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">'孙元素冒泡'</span>);</span><br><span class="line">&#125;,<span class="literal">false</span>);</span><br></pre></td></tr></table></figure></p>
+<p><img src="../image/event.png"><br>下面是控制台的输出，一切都显得那么自然。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">父元素捕获</span><br><span class="line">子元素捕获</span><br><span class="line">孙元素捕获</span><br><span class="line">孙元素冒泡</span><br><span class="line">子元素冒泡</span><br><span class="line">父元素冒泡</span><br></pre></td></tr></table></figure></p>
+<p>当我们把孙元素的事件处理程序交换位置后….<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">oDiv3.addEventListener(<span class="string">'click'</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">'孙元素冒泡'</span>);</span><br><span class="line">&#125;,<span class="literal">false</span>);</span><br><span class="line">oDiv3.addEventListener(<span class="string">'click'</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">'孙元素捕获'</span>);</span><br><span class="line">&#125;,<span class="literal">true</span>);</span><br></pre></td></tr></table></figure></p>
+<p>控制台的输出如下<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">父元素捕获</span><br><span class="line">子元素捕获</span><br><span class="line">孙元素冒泡</span><br><span class="line">孙元素捕获</span><br><span class="line">子元素冒泡</span><br><span class="line">父元素冒泡</span><br></pre></td></tr></table></figure></p>
+<p>如果你给代码最深处再嵌套一个div，你会发现冒泡和捕获位置错乱总是出现在最深一层。<br>还记得事件流包括3个阶段吗？事件捕获阶段、目标阶段、事件冒泡阶段。<br>点击孙元素时处于目标阶段然后是冒泡，冒泡之后才触发捕获（这跟事件顺序有关），接着再往上冒，这一点可以用event的eventPhase属性去验证。</p>
+</span>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      
+      
+        <h1 class="post-title" itemprop="name headline">
+          
+          
+            
               <a class="post-title-link" href="/2015/08/30/people/" itemprop="url">
                 遇见一些人，然后再与他们告别
               </a>
@@ -300,6 +373,79 @@
       
         
           <span itemprop="articleBody"><p>在一所学校读了将近6年，只能说是无趣。一个习惯随波逐流的人在一个没有半点学习氛围的学校，<br>可想而知，唯有选择堕落盲目过着每一天，年少无知，并不清楚知识对于一个人的重要性。好在中间认识了形形色色的人，他们也是很有魅力的，他们的优点吸引了我，我们成为了好友。<br>靡不有初，鲜克有终。<br>渐渐你会发现丢了很多东西，例如时间、情感、友谊。<br>这几年的时间，生活也是发生了很大的改变，就我个人而言，这些改变是我不能接受的，但是已经适应了。生活大概就是不断的去接受新事物并且习惯他。<br>每个人都会在一段时间内去清楚自己喜爱的事物是什么，并且为之改变。<br>高二我才想认真读书，但是发现以前落下的东西太多了，一直都有在努力补救，竭尽全力，才明白做作业和学习是多痛苦的事，但是为了自己想要的也只能选择努力。<br>群里的人虽然好像关系很好，但是之间仍然缺乏感情，我们不会互相倾诉内心，每个人都不够了解对方。<br>近期得知班上的一位好友（简称老lo）要离开学校去追求自己的未来，才感觉到时间差不多到了，又要分别，三年又三年。<br>告别不可怕，最可怕的是今后失去了联系，这是我最不想看到的。<br>遇见一些人，然后再与他们告别。</p>
+</span>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      
+      
+        <h1 class="post-title" itemprop="name headline">
+          
+          
+            
+              <a class="post-title-link" href="/2015/08/30/dom/" itemprop="url">
+                DOM2范围
+              </a>
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          發表於
+          <time itemprop="dateCreated" datetime="2015-08-30T22:05:06+08:00" content="2015-08-30">
+            2015-08-30
+          </time>
+        </span>
+
+        
+
+        
+          
+            <span class="post-comments-count">
+              &nbsp; | &nbsp;
+              <a href="/2015/08/30/dom/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2015/08/30/dom/" itemprop="commentsCount"></span>
+              </a>
+            </span>
+          
+        
+      </div>
+    </header>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <span itemprop="articleBody"><p><strong>除了IE，其余主流浏览器都支持DOM2的范围，然而IE用其特有的方式实现了范围特性（但IE9+支持）！</strong><br><br>Document类型中定义了createRange()，这个方法属于document对象，首先检测浏览器是否支持他：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> supportRange=<span class="built_in">document</span>.implementation.hasFeature(<span class="string">'Range'</span>,<span class="string">'2.0'</span>);</span><br><span class="line"><span class="keyword">var</span> supportRange2=(<span class="keyword">typeof</span> <span class="built_in">document</span>.createRange==<span class="string">'function'</span>);</span><br></pre></td></tr></table></figure></p>
+<p><img src="../image/DOM/DOM-1.png"><br><br>这是初步创建范围后在控制台输出的，拿其中较为关键的属性来说 <br><br><strong>1.startContainer与endContainer他们通常是指向相同元素（前者为选区中第一个元素的父节点，后者为选区中最后一个元素的父节点）</strong><br><br><strong>2.startOffset通常等于父节点的childNodes的第一个子节点的索引，在兼容DOM的浏览器中空格算为一个文本节点。</strong><br>要使用范围选择文档中的一部分，可以使用selectNode()和selectNodeContents()，他们都接收一个参数，即范围的起点，前者选择自身与子，后者只选择子。<br>为了更精确更方便地控制范围引入了一些更为方便的方法，如下：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">setStartBefore(refNode) =&gt;  将范围设置在refNode之前，即refNode是范围开始的第一个子节点，所以startContainer就是refNode的父节点</span><br><span class="line">setStartAfter(refNode)  =&gt;  将范围设置在refNode之后，即refNode的下一个同辈节点才是选区的第一个子节点，所以refNode不在范围之内</span><br><span class="line">setEndBefore(refNode)   =&gt;  将范围的终点设置在refNode之前，即refNode的上一个同辈节点是选区的最后一个子节点，所以refNode不在范围之内</span><br><span class="line">setEndAfter(refNode)    =&gt;  将范围的终点设置在refNode之后，即refNode是选区的最后一个子节点，所以refNode在范围之内</span><br></pre></td></tr></table></figure></p>
+<p>复杂操作：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">setStart(node, offset) =&gt; 设置起点的位置，node是对startContainer的引用，偏移则是startOffset</span><br><span class="line">setEnd(node, offset    =&gt; 设置结束点的位置，node是对endContainer的引用，偏移则是startOffset</span><br></pre></td></tr></table></figure></p>
+<p><img src="../image/DOM/DOM-2.png"><br><br>这段代码最后剩下<strong>H</strong>erld    虽然把范围内的文本删了，但是DOM结构仍然不会变。<br><br>与deleteContents()类似的方法有extractContents()，但后者这个方法会返回选区的内容，因此可以利用他来插入到页面的其他位置。<br><br>cloneContents()这个方法，如果只是要创建一个范围的副本而不去删除或移除范围的内容可以用他，语法名称代表用法，即克隆内容。<br>插入DOM范围中的内容：使用insertNode()方法可以在范围选区开始处插入一个节点。<br><img src="../image/DOM/DOM-3.png"><img src="../image/DOM/DOM-4.png"><br><br>在使用完范围之后，最好调用detach()方法，清理范围，回收内存,一旦分离了范围就不能再使用了。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">range.detach();     <span class="comment">// 从文档中分离</span></span><br><span class="line">range=<span class="literal">null</span>;          <span class="comment">//  解除引用</span></span><br></pre></td></tr></table></figure></p>
+<p>/<em>===========接下来说IE8及更低版本中的DOM范围=============</em>/<br><br>准确来说IE高版本以及低版本都支持文本范围，是IE独有的特性，其他浏览器不支持，语法名称代表用法，所以主要用于文本。<br><img src="../image/DOM/DOM-5.png"><img src="../image/DOM/DOM-6.png"><img src="../image/DOM/DOM-7.png"><br><br>选择某一区域用方法findText(),他会找到第一次出现的文本，然而他第二个参数如果为负值就会找最后一个匹配成功的文本，正值就会找到第一个匹配成功的文本，这也就说明了图中为什么找到hELLO而不是另外两个的原因了！<br><br>当中的变量found只要在匹配到文本时就会返回true，匹配不区分大小写在某些操作上也许会带来方便，可以用属性text，来获取范围选中的文本。<br><br>DOM范围有selectNode()而IE中有=&gt;moveToElementText() =&gt;这个方法接收一个DOM元素，并选择该元素的所有文本，包括HTML标签。如果在范围选区中包含HTML标签可以用属性htmlText读取范围全部内容。<br><br>属性text可以读取文本也可以修改文本，如下：<br><br><img src="../image/DOM/DOM-8.png"><img src="../image/DOM/DOM-9.png"><img src="../image/DOM/DOM-10.png"><br><br>可见hELLO的部分已经被替代成hello，但<b>标签没有被替代，如果想把标签替换掉可以用pasteHTML()，例如：range1.pasteHTML(‘<em>hello</em>‘);<br>但是上述做法会引起冲突，不提倡！<br><br>IE中使用方法duplicate()复制文本范围，如同cloneContents()，新创建的范围带有原范围相同的属性。例：var range=range.duplicate();</b></p>
 </span>
         
       
@@ -504,7 +650,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">4</span>
+              <span class="site-state-item-count">6</span>
               <span class="site-state-item-name">文章</span>
             </a>
           </div>
@@ -518,7 +664,7 @@
 
           <div class="site-state-item site-state-tags">
             <a href="/tags">
-              <span class="site-state-item-count">1</span>
+              <span class="site-state-item-count">4</span>
               <span class="site-state-item-name">標籤</span>
               </a>
           </div>
